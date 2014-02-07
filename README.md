@@ -1,9 +1,20 @@
-it
+(G)It
 ==
 
-Distributed digital ownership of "dumb" physical things
+Distributed product history powered by Git.
+
+## Background
+In "The Architecture of Open Source Software Applications - Volume 2" Susan Potter states that
+"Git enables the maintenance of a digital body of work (often, but not limited to, code) by many collaborators using a peer-to-peer network of repositories. It supports distributed workflows, allowing a body of work to either eventually converge or temporarily diverge."
+
+## Introduction
+Git is, according to Susan Potter, in its structure not limited to exclusively manage source code history. A manufactured physical product does, in a way not very different to source code, collect a kind of history after it has left the store. Just like source code, products can be considered to be "cloned" by customers when they are bought. Information about the product then diverges over time if it is damaged or reviewed by the customer who bought it. Later on the customer's version of the product history can converge with the manufacturer's version and create a merged version containing more information about the product. Could Git be used to manage this kind of product history? In which ways can Git be changed to better manage product history? How could this kind of distributed product history change how we own products?
+
+## Product ownership as an directed acyclic graph
+Version history is in Git represented as a directed acyclic graph (DAG). Below is my first attempt at representing product ownership as a DAG. 
 
 ## Design Goals
+
 - **Functionality:** It should be easier to add a new thing to the system than it is to create a second-hand ad on for example Ebay.
 
 - **Functionality:** An added thing should be given a persistent digital profile (preferably in the shape of one single file).
