@@ -20,3 +20,6 @@ http://www.disco.ethz.ch/publications/hotnets06.pdf
 Kate Matsudaira
 http://aosabook.org/en/distsys.html
 
+##Clay Shirky
+Writes about the effects of the internet on society
+http://shirky.com/writings/

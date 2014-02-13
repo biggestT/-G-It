@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1052.3622"
+   height="744.09448"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="GIt.svg">
+  <defs
+     id="defs4">
+    <font
+       horiz-adv-x="1024"
+       id="font3049"
+       inkscape:label="font 1">
+      <font-face
+         units-per-em="1024"
+         id="font-face3051"
+         font-family="SVGFont 1" />
+      <missing-glyph
+         d="M0,0h1000v1024h-1000z"
+         id="missing-glyph3053" />
+    </font>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="625.6923"
+     inkscape:cy="127.15616"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="774"
+     inkscape:window-height="713"
+     inkscape:window-x="546"
+     inkscape:window-y="29"
+     inkscape:window-maximized="0"
+     units="mm" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-308.26772)">
+    <g
+       id="g3031"
+       transform="matrix(0.20615364,0.19950102,-0.19950102,0.20615364,160.91105,309.08257)"
+       inkscape:export-filename="/home/bigt/thesis/it.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         ry="82.85714"
+         y="46.647896"
+         x="22.857143"
+         height="702.85712"
+         width="702.85712"
+         id="rect2991"
+         style="fill:#66cc33" />
+      <rect
+         rx="25.714285"
+         ry="25.714291"
+         y="146.6479"
+         x="205.71428"
+         height="145.71426"
+         width="145.71429"
+         id="rect2997"
+         style="fill:#ffffff" />
+      <rect
+         style="fill:#ffffff"
+         id="rect2999"
+         width="145.71429"
+         height="145.71426"
+         x="471.42859"
+         y="146.6479"
+         ry="25.714291"
+         rx="25.714285" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         rx="25.714285"
+         ry="25.714291"
+         y="-614.28571"
+         x="458.07648"
+         height="145.71426"
+         width="145.71429"
+         id="rect3001"
+         style="fill:#ffffff" />
+      <rect
+         ry="25.714291"
+         rx="23.940886"
+         y="192.36218"
+         x="2.8571427"
+         height="60"
+         width="231.42857"
+         id="rect3003"
+         style="fill:#ffffff" />
+      <a
+         id="a3028">
+        <rect
+           ry="25.714291"
+           rx="23.940886"
+           y="189.50504"
+           x="300"
+           height="60"
+           width="231.42857"
+           id="rect3005"
+           style="fill:#ffffff" />
+      </a>
+      <rect
+         transform="matrix(-0.60963285,-0.79268391,0.79268391,-0.60963285,0,0)"
+         ry="25.714291"
+         rx="34.876846"
+         y="64.601257"
+         x="-734.50403"
+         height="60"
+         width="337.14285"
+         id="rect3007"
+         style="fill:#ffffff" />
+    </g>
+    <g
+       id="g3140"
+       transform="matrix(0.70451006,0,0,0.70451006,-147.33434,-133.54048)"
+       inkscape:export-filename="/home/bigt/thesis/it.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path3130"
+         d="m 875.67363,941.39174 c -23.02102,-3.35325 -35.50551,-14.65172 -40.74342,-36.8728 -0.64435,-2.73356 -1.30525,-26.99494 -1.67568,-61.51384 l -0.61168,-57 -13.77464,-0.27838 -13.77463,-0.27838 0.27463,-16.13898 0.27464,-16.13899 7,-1.38686 c 14.59352,-2.8913 26.27399,-10.97867 31.90465,-22.09025 3.39608,-6.70183 7.38128,-20.6424 8.20809,-28.71255 l 0.66345,-6.47561 17.3619,0 17.36191,0 0,26.89301 c 0,23.60042 0.19366,26.96733 1.58179,27.5 0.86998,0.33385 13.01996,0.60699 26.99996,0.60699 l 25.4182,0 0,18 0,18 -27.0516,0 -27.05165,0 0.35503,49.75 c 0.38831,54.41491 0.43556,54.87062 6.29718,60.73224 1.70185,1.70186 4.91427,3.63956 7.13874,4.30602 6.7887,2.03396 18.9359,1.48425 30.2504,-1.36896 5.6286,-1.41939 10.3325,-2.43189 10.4529,-2.25 0.1848,0.27885 7.7405,24.88515 9.2089,29.9898 0.9317,3.23885 -27.0943,12.54466 -44.5999,14.80902 -8.9537,1.15817 -23.21203,1.12126 -31.46917,-0.0815 z"
+         style="fill:#000000"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3128"
+         d="m 705.14285,927.52415 c 0,-16.10465 -1.54139,-14.19731 12.99548,-16.08086 4.67252,-0.60542 9.06002,-1.56929 9.75,-2.14192 0.97951,-0.81292 1.25452,-13.69476 1.25452,-58.76373 0,-53.72756 -0.12112,-57.82787 -1.75,-59.24413 -0.9625,-0.83687 -6.025,-3.00483 -11.25,-4.8177 -5.225,-1.81287 -9.82226,-3.56767 -10.21613,-3.89955 -0.39388,-0.33189 0.16862,-6.8832 1.25,-14.55848 1.08137,-7.67527 1.96613,-14.08051 1.96613,-14.23386 0,-0.15335 16.875,-0.27882 37.5,-0.27882 l 37.5,0 0,76.92857 c 0,66.17981 0.2044,77.13297 1.46287,78.39144 0.8191,0.81911 5.32984,1.98495 10.25,2.64921 13.61624,1.8383 12.28713,0.0969 12.28713,16.09817 l 0,13.93261 -51.5,0 -51.5,0 0,-13.98095 z"
+         style="fill:#000000"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3120"
+         d="m 744.35982,723.39167 c -5.85634,-0.97508 -11.44682,-3.5262 -15.85428,-7.23484 -6.6689,-5.61151 -10.51123,-19.50473 -8.59404,-31.07458 1.90323,-11.48564 6.4824,-18.02838 15.83644,-22.62719 4.29848,-2.1133 6.29615,-2.40918 16.39491,-2.42825 10.59543,-0.02 11.94867,0.19862 17.2041,2.77938 6.36341,3.12486 10.10015,7.00603 13.18911,13.69891 2.99486,6.489 2.99486,23.511 0,30 -4.52305,9.80014 -11.81142,15.05088 -23.53131,16.95259 -7.13032,1.15699 -7.30424,1.15621 -14.64493,-0.066 z"
+         style="fill:#000000"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
