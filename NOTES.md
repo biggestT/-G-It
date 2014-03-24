@@ -2,7 +2,7 @@
 - *ISIM* Item Specific Information Management
 - *PLM* Product Life Cycle Management
 - *BOL, MOL and EOL* The beginning, middle and end of a product's life
-- *Product Avatar* Product-item-specific software and data that can be store locally with the product itself or be located on one or more remote computers.
+- *Product Avatar* Product-item-specific software and data that can be stored locally with the product itself or be located on one or more remote computers.
 - *GUPI* Globally Unique Product Identifier. The minimal information included in the product avatar. Sufficient information for retrieving the Internet address(es) where the remote parts of the avatar is located.
 - *EPC* Electronic Product Code
 - *PLIM* Product Lifetime Information Management
