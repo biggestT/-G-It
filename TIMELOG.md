@@ -8,5 +8,6 @@
 * 2014-02-14 Read papers about Item Specific Information Management and Information Architectures for the Internet of Things 3 hrs 37 min
 * 2014-02-17 input from reading articles about item specific information management 4 hrs 9 min
 * 2014-03-24 wrote planning report 6 hrs 17 min
+* 2014-03-25 read chapter 4 in pro git and started sketching on prototype 3 hrs 26 min
 
-### Total time spent: 37 hours and 27 minutes 
+### Total time spent: 40 hours and 53 minutes 

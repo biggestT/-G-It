@@ -61,6 +61,12 @@ Draw PLM process flow diagram of a couple of different products? Use existing di
 
 
 ##Notes from Främling's paper about an Information Architecture for the IoT
+
+> PLM as used by CAD/CAM and even ERP system vendors usually signifies
+the management of product design documents and the different
+variations and versions of those documents, while the "usage"
+phase of product instances tends to be omitted. 
+
 >The success of the information architecture and the implementations of it are in this paper evaluated mainly based on the following criteria: 
 
 > -  Degree of fulfillment of the requirements set up by the demonstrator owners. 
@@ -68,6 +74,7 @@ Draw PLM process flow diagram of a couple of different products? Use existing di
 > -  Flexibility of the system when organizational, hardware or other changes occurs. 
 > -  To what extent it satisfies the requirements of an Internet of Things. 
 > -  To what extent it satisfies the requirements of PLIM. 
+
 
 Främling is focused on the data that a ubicomp device generates rather than the current version of it's product avatar. Could my It approach support storage of such data and allow for other applications to generate and communicate that data over time? 
 
