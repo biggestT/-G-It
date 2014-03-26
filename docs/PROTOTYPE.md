@@ -37,16 +37,3 @@ The it script could generate a public HTML profile of the thing after each new c
 
 ###JSON
 Json data could be generated as well to accomodate many possible different third party clients. How should they authenticate themselves?
-
-###Workflow
-
-
->Git is fundamentally
-a content-addressable filesystem.
->
->at the core of Git is a simple key-value data store.
->
->[plumbing commands] aren’t meant to be used manually on
-the command line, but rather to be used as building blocks for new tools and custom scripts.
-
->Pro Git

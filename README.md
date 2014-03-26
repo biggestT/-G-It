@@ -127,7 +127,7 @@ But since Git is designed to represent any file tree structure it is completely 
 
 A "more stable silo" could in the case of branches of It repositories correspond to  a closer association with the core product. The so called master, develop and topic branches could instead correspond to the manufacturer, reseller, buyer and second hand buyer of a product in an It branching model. 
 
-![it branching example](itBranching.png)
+![it branching example](images/itBranching.png)
 How Git's branching model could be used to share product information among first and second hand owners as well as the manufacturer and reseller.
 
 Below the reseller layer everything added by contributors should be considered to be item specific product information (ISPI). Ranasinghe et. al makes a clear distinction between this and the information management of a product in general:
@@ -211,17 +211,24 @@ level PLM applications?).
 ##Merging Strategy
 A suitable merging strategy for product information needs to be developed or chosen among existing ones.  
 
+##List of References
 
+- C Corcelle, K Framling, L Rabe et Al  
+*Assessment of item-specific information management approaches in the area of  heavy load vehicles*  
+[link](http://www.cs.hut.fi/~framling/Publications/PLM_07_CorcelleFramlingRabeEtAl.pdf)
 
-[framling]: http://www.cs.hut.fi/~framling/Publications/PLM_07_CorcelleFramlingRabeEtAl.pdf
-	"Assessment of item-specific information management approaches in the area of heavy load vehicles. "
-[aosa]: http://aosabook.org/en/git.html
-    "the Architecture of Open Source Software Applications - vol 2"
-[progit]: http://git-scm.com/book/en/
-    "Pro Git"
-[plmsc]: http://www.sciencedirect.com.lt.ltag.bibl.liu.se/science/article/pii/S1084804510000937
-"Enabling through life product-instance management: Solutions and challenges
-"
+- S Potter  
+*the Architecture of Open Source Software Applications - vol 2*  
+[link](http://aosabook.org/en/git.html)  
+
+- S Chacon  
+*Pro Git*  
+[link](http://git-scm.com/book/en/)
+
+- C Ranasinghe, M Harrison, K Främling et Al  
+*Enabling through life product-instance management: Solutions and challenges*  
+[link](http://www.sciencedirect.com.lt.ltag.bibl.liu.se/science/article/pii/S1084804510000937)  
+
 
 
 
