@@ -1,6 +1,18 @@
+##Use Case
+![It use case diagram](images/itUse.png)
+It use case diagram
+
+###Issue new ISR
+
+
+###Transfer ISR
+
+
+##Platform
+Most online purchases today are made in a web browser and the most common web browser is Google Chrome. A Google Chrome application gets access to the user's file system and can be used also when the user is offline. It is also said to be fairly simple to port a Google Chrome Application to an Open Web Application for use in the Firefox browser. A Google Chrome and Firefox implementation would result in a possible reach of about 60% of the desktop browser market share as of January 2014. 
+
 ##Storage
-Support a possible use case where the ISR is stored on the actual product.
-The ISR could be stored in multiple locations, e.g. on the user's computer, smartphone and within the product. 
+Support a possible use case where the ISR is stored on the actual product. The ISR could be stored in multiple locations, e.g. on the user's computer, smartphone and within the product. 
 
 Store item specific information in an .it folder? Then the git and it features could be kept separate. The first prototype could be just a bash script with some CLI commands? 
 
@@ -12,9 +24,18 @@ Use a node.js server as an example for the prototype. On this server only the 'b
 ##Unique Product Identification (UPI)
 The UPI could be a hash of the user's public ssh key and the time of initiation of the thing. This assumes that no one user 'creates' multiple things at the same time. With a mint the information about who created the thing and at what time can be obtained by just knowing the UPI. 
 
-###Proof of Purchase
+##RFID on Product
+The product can store the 160 bit (20 byte) hash of a git commit on an (unencrypted?) RFID tag? 
+###Type of RFID chip
+
+
+###Transaction History / Proof of purchase
 Should there be a way to prove that a certain user cloned a certain remote GPI repository into a ISR at a certain time? Look into the bitcoin architecture for implementations of cryptographic proofs.
 
+Bitcoin keeps a distributed P2P ledger of the global transaction history. The transaction history is represented as a chain of digital signatures. A similiar chain of digital signatures could be kept for just a certain product. This item specific transaction chain can in It's case be stored on a RFID tag attached to the product itself as well as in the ISR. While bitcoin output transactions declare a value to be transfered the It implementation instead stores the hash of the current Git commit, i.e the HEAD of the repository.
+
+[Bitcoin transactions explained]
+(https://en.bitcoin.it/wiki/Transaction)
 ##Authentication
 the owner needs to store its private SHA-128 key somewhere. 
 

@@ -1,4 +1,4 @@
-![(G)It](it.png)
+![(G)It](images/it.png)
 ====
 
 Distributed product life cycle information management powered by Git.

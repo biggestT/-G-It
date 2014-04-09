@@ -9,5 +9,8 @@
 * 2014-02-17 input from reading articles about item specific information management 4 hrs 9 min
 * 2014-03-24 wrote planning report 6 hrs 17 min
 * 2014-03-25 read chapter 4 in pro git and started sketching on prototype 3 hrs 26 min
+* 2014-03-26 read chapter 9 in pro git about plumbing commands that could be used by an it prototype 4 hrs 25 min
+* 2014-04-02 use case diagram for the prototype and read in pro git about git plumbing 6 hrs 10 min
+* 2014-04-07 researched RFID and android development environment set up 4 hrs 26 min
 
-### Total time spent: 40 hours and 53 minutes 
+### Total time spent: 55 hours and 54 minutes 
