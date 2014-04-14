@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="47.999996"
+   height="47.999996"
+   id="svg2998">
+  <defs
+     id="defs3000" />
+  <metadata
+     id="metadata3003">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-0.13002793,-1004.4523)"
+     id="layer1">
+    <g
+       transform="matrix(0.03727383,0.03607099,-0.03607099,0.03727383,24.537976,1000.1136)"
+       id="g3031">
+      <rect
+         width="702.85712"
+         height="702.85712"
+         ry="82.85714"
+         x="22.857143"
+         y="46.647896"
+         id="rect2991"
+         style="fill:#66cc33" />
+      <rect
+         width="145.71429"
+         height="145.71426"
+         rx="25.714285"
+         ry="25.714291"
+         x="205.71428"
+         y="146.6479"
+         id="rect2997"
+         style="fill:#ffffff" />
+      <rect
+         width="145.71429"
+         height="145.71426"
+         rx="25.714285"
+         ry="25.714291"
+         x="471.42859"
+         y="146.6479"
+         id="rect2999"
+         style="fill:#ffffff" />
+      <rect
+         width="145.71429"
+         height="145.71426"
+         rx="25.714285"
+         ry="25.714291"
+         x="458.07648"
+         y="-614.28571"
+         transform="matrix(0,1,-1,0,0,0)"
+         id="rect3001"
+         style="fill:#ffffff" />
+      <rect
+         width="231.42857"
+         height="60"
+         rx="23.940886"
+         ry="25.714291"
+         x="2.8571427"
+         y="192.36218"
+         id="rect3003"
+         style="fill:#ffffff" />
+      <a
+         id="a3028">
+        <rect
+           width="231.42857"
+           height="60"
+           rx="23.940886"
+           ry="25.714291"
+           x="300"
+           y="189.50504"
+           id="rect3005"
+           style="fill:#ffffff" />
+      </a>
+      <rect
+         width="337.14285"
+         height="60"
+         rx="34.876846"
+         ry="25.714291"
+         x="-734.50403"
+         y="64.601257"
+         transform="matrix(-0.60963285,-0.79268391,0.79268391,-0.60963285,0,0)"
+         id="rect3007"
+         style="fill:#ffffff" />
+    </g>
+  </g>
+</svg>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MainActivity</string>
+    <string name="app_name">It</string>
+    <string name="input_remote_url">Enter URL to a git repository</string>
+    <string name="button_clone">Clone</string>
+    <string name="title_activity_display_message">My Message</string>
 </resources>

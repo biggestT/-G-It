@@ -12,5 +12,7 @@
 * 2014-03-26 read chapter 9 in pro git about plumbing commands that could be used by an it prototype 4 hrs 25 min
 * 2014-04-02 use case diagram for the prototype and read in pro git about git plumbing 6 hrs 10 min
 * 2014-04-07 researched RFID and android development environment set up 4 hrs 26 min
+* 2014-04-09 read about libgit2 and the android-ndk 3 hrs 4 min
+* 2014-04-13 android app basics 5 hrs 30 min
 
-### Total time spent: 55 hours and 54 minutes 
+### Total time spent: 64 hours and 28 minutes 
