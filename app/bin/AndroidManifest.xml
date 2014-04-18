@@ -13,7 +13,7 @@
             </intent-filter>
         </activity>
         <activity
-        android:name=".DisplayMessageActivity"
+        android:name=".CloneRepositoryActivity"
         android:label="@string/title_activity_display_message"
         android:parentActivityName=".MainActivity" >
         <meta-data

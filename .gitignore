@@ -5,3 +5,6 @@ src/
 sandbox/
 app/bin/
 builds/
+libs-source/
+libs-build/
+toolchains/

@@ -14,5 +14,7 @@
 * 2014-04-07 researched RFID and android development environment set up 4 hrs 26 min
 * 2014-04-09 read about libgit2 and the android-ndk 3 hrs 4 min
 * 2014-04-13 android app basics 5 hrs 30 min
+* 2014-04-14 still basic android app setups 4 hrs 20 min
+* 2014-04-15 gitlib integration 3 hrs 14 min
 
-### Total time spent: 64 hours and 28 minutes 
+### Total time spent: 72 hours and 2 minutes 

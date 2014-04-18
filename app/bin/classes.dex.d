@@ -1,5 +1,6 @@
 /home/bigt/thesis/app/bin/classes.dex : \
 /home/bigt/thesis/app/bin/classes/com/thingsbook/it/R$id.class \
+/home/bigt/thesis/app/bin/classes/com/thingsbook/it/CloneRepositoryActivity.class \
 /home/bigt/thesis/app/bin/classes/com/thingsbook/it/R$attr.class \
 /home/bigt/thesis/app/bin/classes/com/thingsbook/it/R$layout.class \
 /home/bigt/thesis/app/bin/classes/com/thingsbook/it/DisplayMessageActivity.class \
