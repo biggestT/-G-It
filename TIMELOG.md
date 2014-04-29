@@ -16,5 +16,12 @@
 * 2014-04-13 android app basics 5 hrs 30 min
 * 2014-04-14 still basic android app setups 4 hrs 20 min
 * 2014-04-15 gitlib integration 3 hrs 14 min
+* 2014-04-18 cmake set up for libgit2 6 hrs 4 min
+* 2014-04-21 cmake set up for libgit2 4 hrs 0 min
+* 2014-04-22 linking of the static libraries dependencies fucks up ... 7 hrs 5 min
+* 2014-04-23 connected libgit2 to app 4 hrs 29 min
+* 2014-04-24 read up on GNU compiler and the JNI 3 hrs 38 min
+* 2014-04-25 read about JNI 1 hrs 49 min
+* 2014-04-28 debugging enivornment fix 6 hrs 4 min
 
-### Total time spent: 72 hours and 2 minutes 
+### Total time spent: 105 hours and 11 minutes 

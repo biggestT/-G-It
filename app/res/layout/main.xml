@@ -3,16 +3,24 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="horizontal" >
-
-  <EditText android:id="@+id/input_remote_url"
+  <TextView
+    android:id="@+id/version_text"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content" 
+    android:layout_weight="1"
+  />
+  <EditText 
+    android:id="@+id/input_remote_url"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:hint="@string/input_remote_url" />
+    android:hint="@string/input_remote_url" 
+  />
   <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/button_clone"
-    android:onClick="cloneRepository" />
+    android:onClick="cloneRepository" 
+  />
 </LinearLayout>
 

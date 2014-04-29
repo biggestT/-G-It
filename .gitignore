@@ -8,3 +8,10 @@ builds/
 libs-source/
 libs-build/
 toolchains/
+app/bin
+app/bin/
+*log.txt
+app/gen/
+app/cmoss/
+app/jni/include/
+app/jni/lib/
