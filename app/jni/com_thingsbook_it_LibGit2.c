@@ -14,17 +14,6 @@
 // declare check error helping function
 static void check_error(int, const char *);
 
-JNIEXPORT jstring JNICALL Java_com_thingsbook_it_LibGit2_getVersion
-(JNIEnv * env, jclass cls)
-{
-	int major, minor, rev;
-	git_libgit2_version(&major, &minor, &rev);
-	char version[15];
-	sprintf(version, "%d.%d.%d", major, minor, rev);
-
-	return (*env)->NewStringUTF(env, version);
-}
-
 JNIEXPORT jint JNICALL Java_com_thingsbook_it_LibGit2_clone
 (JNIEnv * env, jclass cls, jstring url, jstring localPath)
 {

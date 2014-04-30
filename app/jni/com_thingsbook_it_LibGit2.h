@@ -7,13 +7,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-/*
- * Class:     com_thingsbook_it_LibGit2
- * Method:    getVersion
- * Signature: ()Ljava/lang/String;
- */
-JNIEXPORT jstring JNICALL Java_com_thingsbook_it_LibGit2_getVersion
-  (JNIEnv *, jclass);
 
 /*
  * Class:     com_thingsbook_it_LibGit2
