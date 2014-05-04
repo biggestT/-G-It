@@ -24,5 +24,7 @@
 * 2014-04-25 read about JNI 1 hrs 49 min
 * 2014-04-28 debugging enivornment fix 6 hrs 4 min
 * 2014-04-29 cloning feature 4 hrs 21 min
+* 2014-04-30 setting up layout 5 hrs 28 min
+* 2014-05-02 gridlayout with thumbnails for things 3 hrs 44 min
 
-### Total time spent: 109 hours and 32 minutes 
+### Total time spent: 118 hours and 44 minutes 
