@@ -4,5 +4,6 @@
     <string name="input_remote_url">Enter URL to a git repository</string>
     <string name="button_clone">Clone</string>
     <string name="action_new">New</string>
-    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_display_thing">Thing profile</string>
+    <string name="title_activity_clone_repository">Clone repository</string>
 </resources>

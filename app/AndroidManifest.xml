@@ -17,7 +17,15 @@
         </activity>
         <activity
         android:name=".CloneRepositoryActivity"
-        android:label="@string/title_activity_display_message"
+        android:label="@string/title_activity_clone_repository"
+        android:parentActivityName=".MainActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+    </activity>
+    <activity
+        android:name=".ThingProfileActivity"
+        android:label="@string/title_activity_display_thing"
         android:parentActivityName=".MainActivity" >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"

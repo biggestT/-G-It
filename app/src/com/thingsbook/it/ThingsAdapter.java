@@ -1,13 +1,17 @@
 package com.thingsbook.it;
 
+import java.util.ArrayList;
+
 import android.widget.ImageView;
 import android.widget.BaseAdapter;
-
 import android.view.ViewGroup;
 import android.content.Context;
 import android.view.View;
 import android.widget.GridView;
-import java.util.ArrayList;
+import android.net.Uri;
+import android.graphics.BitmapFactory;
+import android.graphics.Bitmap;
+
 
 
 public class ThingsAdapter extends BaseAdapter {
@@ -29,7 +33,7 @@ public class ThingsAdapter extends BaseAdapter {
 	}
 
 	public Object getItem(int position) {
-		return null;
+		return things.get(position);
 	}
 
 	public long getItemId(int position) {
@@ -47,7 +51,8 @@ public class ThingsAdapter extends BaseAdapter {
 		} else {
 			imageView = (ImageView) convertView;
 		}
-		imageView.setImageBitmap(things.get(position).images[0]);
+		Bitmap thumbnailBitmap = BitmapFactory.decodeFile(things.get(position).getThumbnailUrl());
+		imageView.setImageBitmap(thumbnailBitmap);
 		return imageView;
 	}
 }

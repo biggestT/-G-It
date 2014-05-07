@@ -26,13 +26,15 @@ import java.util.ArrayList;
 import com.thingsbook.it.LibGit2;
 import com.thingsbook.it.Thing;
 import com.thingsbook.it.ThingsAdapter;
-
-
+import com.thingsbook.it.ThingProfileActivity;
 
 public class MainActivity extends Activity
 {
 
   private static final String TAG = "ItApplication";
+
+  static final String ACTION_VIEW_THING = "com.thingsbook.it.VIEW_THING";
+  static final String EXTRA_THING = "com.thingsbook.it.EXTRA_THING";
 
   /** Called when the activity is first created. */
   @Override
@@ -45,32 +47,30 @@ public class MainActivity extends Activity
 
     if (isExternalStorageWritable()) {
       File storage = getStorageDir();
-      Log.d(TAG, "Storage path: " + storage.toString());
       
       File files[] = storage.listFiles();
       for (int i=0; i<files.length; i++ ) {
         if (files[i].isDirectory()){
-          Log.d(TAG, "Found dir: " + files[i].getName());
           things.add(new Thing(files[i]));
         }
       }
-      Log.d(TAG, "File length: " + files.length);
 
       GridView gridview = (GridView) findViewById(R.id.gridview);
       ThingsAdapter thingsadapter = new ThingsAdapter(this, things);
     
-      Log.d(TAG, "setting adapter ... ");
-      if (gridview == null) {
-        Log.d(TAG, "gridview is null ... ");
-      }
       gridview.setAdapter(thingsadapter);
-      Log.d(TAG, "adapter set");
 
-      // gridview.setOnItemClickListener(new OnItemClickListener() {
-      //   public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-      //     Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-      //   } 
-      // });
+      final Context context = this;
+
+      gridview.setOnItemClickListener(new OnItemClickListener() {
+        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+          // Start a new activity that shows the clicked things whole profile
+          Intent intent = new Intent(context, ThingProfileActivity.class);
+          Thing clickedThing = (Thing) parent.getAdapter().getItem(position);
+          intent.putExtra(EXTRA_THING, clickedThing);
+          startActivity(intent);
+        } 
+      });
     
     }
     

@@ -16,7 +16,7 @@ public class CloneRepositoryActivity extends Activity
 
     // Get the message from the intent
     Intent intent = getIntent();
-    String remoteUrl = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+    // String remoteUrl = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
     // int status = git_clone()
     // Create the text view

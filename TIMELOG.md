@@ -26,5 +26,7 @@
 * 2014-04-29 cloning feature 4 hrs 21 min
 * 2014-04-30 setting up layout 5 hrs 28 min
 * 2014-05-02 gridlayout with thumbnails for things 3 hrs 44 min
+* 2014-05-04 thumbnail view of image in repository folder 3 hrs 30 min
+* 2014-05-05 started creating simple profiles for thing folders 5 hrs 51 min
 
-### Total time spent: 118 hours and 44 minutes 
+### Total time spent: 128 hours and 5 minutes 
