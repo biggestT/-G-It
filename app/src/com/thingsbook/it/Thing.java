@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.ByteArrayOutputStream;
 
+import android.util.Log;
 import android.content.Context;
 import android.os.Parcel; 
 import android.os.Parcelable; 
@@ -57,6 +58,9 @@ public class Thing implements Parcelable
 	}
 	public String getName() {
 		return this.name;
+	}
+	public String getFolderPath() {
+		return this.path;
 	}
 
 

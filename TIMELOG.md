@@ -28,5 +28,6 @@
 * 2014-05-02 gridlayout with thumbnails for things 3 hrs 44 min
 * 2014-05-04 thumbnail view of image in repository folder 3 hrs 30 min
 * 2014-05-05 started creating simple profiles for thing folders 5 hrs 51 min
+* 2014-05-07 thing profile 3 hrs 20 min
 
-### Total time spent: 128 hours and 5 minutes 
+### Total time spent: 131 hours and 25 minutes 
