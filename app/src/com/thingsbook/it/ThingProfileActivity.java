@@ -37,9 +37,8 @@ public class ThingProfileActivity extends Activity {
 
 		this.setTitle(thing.getName());
 
-		ImageView pictureView = (ImageView) findViewById(R.id.thingimage);
-		Bitmap thumbnailBitmap = BitmapFactory.decodeFile(thing.getThumbnailUrl());
-		pictureView.setImageBitmap(thumbnailBitmap);
+		final ImageView pictureView = (ImageView) findViewById(R.id.thingimage);
+    thing.setImageViewImage(pictureView);
 
 		File folder = new File(thing.getFolderPath());
 		String filenames[] = folder.list();

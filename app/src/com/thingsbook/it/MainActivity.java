@@ -16,6 +16,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Environment;
 import android.widget.ArrayAdapter;
 import android.app.ListActivity;
+import android.view.MenuItem;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ import com.thingsbook.it.LibGit2;
 import com.thingsbook.it.Thing;
 import com.thingsbook.it.ThingsAdapter;
 import com.thingsbook.it.ThingProfileActivity;
+import com.thingsbook.it.CloneRepositoryActivity;
 
 public class MainActivity extends Activity
 {
@@ -35,6 +37,9 @@ public class MainActivity extends Activity
 
   static final String ACTION_VIEW_THING = "com.thingsbook.it.VIEW_THING";
   static final String EXTRA_THING = "com.thingsbook.it.EXTRA_THING";
+  static final String EXTRA_PATH = "com.thingsbook.it.EXTRA_PATH";
+
+  private String storagePath;
 
   /** Called when the activity is first created. */
   @Override
@@ -47,7 +52,8 @@ public class MainActivity extends Activity
 
     if (isExternalStorageWritable()) {
       File storage = getStorageDir();
-      
+      this.storagePath = storage.getAbsolutePath();
+
       File files[] = storage.listFiles();
       for (int i=0; i<files.length; i++ ) {
         if (files[i].isDirectory()){
@@ -85,14 +91,12 @@ public class MainActivity extends Activity
   } 
 
   // Called when user intitiates a clone
-  public void cloneRepository(View view) {
+  public void cloneRepository(MenuItem item) {
   	
   	// Start a a new activity
-  	// Intent intent = new Intent(this, CloneRepositoryActivity.class);
-  	// EditText editText = (EditText) findViewById(R.id.input_remote_url);
-  	// String message = editText.getText().toString();
-  	// intent.putExtra(EXTRA_MESSAGE, message);
-  	// startActivity(intent);
+  	Intent intent = new Intent(this, CloneRepositoryActivity.class);
+  	intent.putExtra(EXTRA_PATH, this.storagePath);
+  	startActivity(intent);
 
   }
 

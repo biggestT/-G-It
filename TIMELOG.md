@@ -29,5 +29,8 @@
 * 2014-05-04 thumbnail view of image in repository folder 3 hrs 30 min
 * 2014-05-05 started creating simple profiles for thing folders 5 hrs 51 min
 * 2014-05-07 thing profile 3 hrs 20 min
+* 2014-05-12 list of files for thing 4 hrs 20 min
+* 2014-05-13 chmod error in libgit 4 hrs 7 min
+* 2014-05-14 chmod error 2 hrs 0min
 
-### Total time spent: 131 hours and 25 minutes 
+### Total time spent: 164 hours and 22 minutes 

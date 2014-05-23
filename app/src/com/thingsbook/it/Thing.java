@@ -13,7 +13,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.graphics.BitmapFactory;
 import android.graphics.Bitmap;
-
+import android.widget.ImageView;
 
 public class Thing implements Parcelable
 {
@@ -44,7 +44,7 @@ public class Thing implements Parcelable
 			}
 		});
 
-		thumbnailUrl = makeThumbnail(imagefiles[0].getAbsolutePath());
+		thumbnailUrl = (imagefiles.length>0) ? makeThumbnail(imagefiles[0].getAbsolutePath()) : null;
 	}
 
 	// constructor for the parcel interface
@@ -93,6 +93,15 @@ public class Thing implements Parcelable
 		name = in.readString();
 	}
 
+	public void setImageViewImage(final ImageView iv) {
+		if (thumbnailUrl != null) {
+			Bitmap thumbnailBitmap = BitmapFactory.decodeFile(thumbnailUrl);
+			iv.setImageBitmap(thumbnailBitmap);
+		}
+		else {
+			iv.setImageResource(R.drawable.placeholder);
+		}
+	}
 
 	// Downsample larger image files to thumbnail bitmap and return URL
 	private String makeThumbnail(String fileName) {
@@ -105,7 +114,7 @@ public class Thing implements Parcelable
       final int THUMBNAIL_WIDTH = Math.round((float)shrinkFactor*imageBitmap.getWidth());
       imageBitmap = Bitmap.createScaledBitmap(imageBitmap, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, false);
 
-      String outputPath = path + ".thumbnail.jpg";
+      String outputPath = path + "/.thumbnail.jpg";
       File file = new File(outputPath);
       FileOutputStream fos = new FileOutputStream(file);
       imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);

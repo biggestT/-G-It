@@ -51,8 +51,7 @@ public class ThingsAdapter extends BaseAdapter {
 		} else {
 			imageView = (ImageView) convertView;
 		}
-		Bitmap thumbnailBitmap = BitmapFactory.decodeFile(things.get(position).getThumbnailUrl());
-		imageView.setImageBitmap(thumbnailBitmap);
+		things.get(position).setImageViewImage(imageView);
 		return imageView;
 	}
 }
