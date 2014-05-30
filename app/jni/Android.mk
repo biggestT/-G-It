@@ -1,4 +1,5 @@
 LOCAL_PATH := $(call my-dir)
+APP_OPTIM := debug
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := gpg-error

@@ -15,7 +15,7 @@
 * 2014-04-09 read about libgit2 and the android-ndk 3 hrs 4 min
 * 2014-04-13 android app basics 5 hrs 30 min
 * 2014-04-14 still basic android app setups 4 hrs 20 min
-* 2014-04-15 gitlib integration 3 hrs 14 min
+n* 2014-04-15 gitlib integration 3 hrs 14 min
 * 2014-04-18 cmake set up for libgit2 6 hrs 4 min
 * 2014-04-21 cmake set up for libgit2 4 hrs 0 min
 * 2014-04-22 linking of the static libraries dependencies fucks up ... 7 hrs 5 min
@@ -32,5 +32,8 @@
 * 2014-05-12 list of files for thing 4 hrs 20 min
 * 2014-05-13 chmod error in libgit 4 hrs 7 min
 * 2014-05-14 chmod error 2 hrs 0min
+* 2014-05-23 cloning function 8 hrs 43 min
+* 2014-05-26 OpenSSL issue 2 hrs 58 min
+* 2014-05-29 errors in cloning method 4 hrs 52 min
 
-### Total time spent: 164 hours and 22 minutes 
+### Total time spent: 158 hours and 25 minutes 
