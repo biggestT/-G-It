@@ -7,4 +7,5 @@ public class LibGit2 {
 	}
 
   public native static int clone(String URL, String LocalPath);
+  public native static void init();
 }

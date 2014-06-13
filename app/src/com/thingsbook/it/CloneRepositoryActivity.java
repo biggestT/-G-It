@@ -33,7 +33,7 @@ public class CloneRepositoryActivity extends Activity
     deleteDirectory(new File(basePath));
 
     // start cloning
-    int status = LibGit2.clone("https://github.com/biggestT/project-time-tracker.git", basePath);
+    int status = LibGit2.clone("https://github.com/biggestT/lifelab.git", basePath);
   }
   
   // declare native clone method from libgit2

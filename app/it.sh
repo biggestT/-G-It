@@ -57,7 +57,7 @@ buildLibGit2() {
 	cmake -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE_PATH \
 	-DANDROID=1  \
 	-DBUILD_SHARED_LIBS=0 \
-	-DTHREADSAFE=1 \
+	-DTHREADSAFE=0 \
 	-DBUILD_CLAR=0 \
 	-DCMAKE_INSTALL_PREFIX=$LIBS_INSTALL_PATH \
 	$LIBGIT2_SOURCE_PATH 
@@ -73,7 +73,7 @@ buildJNI()
 {
 	printMessage "Compiling native code"
 	cd jni/
-	ndk-build NDK_DEBUG=1
+	ndk-build NDK_DEBUG=1 
 	cd ..
 }
 

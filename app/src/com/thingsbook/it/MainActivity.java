@@ -48,6 +48,9 @@ public class MainActivity extends Activity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
 
+    // initiate LibGit2 instance, i.e initiate threads
+    LibGit2.init();
+
     ArrayList<Thing> things = new ArrayList<Thing>();
 
     if (isExternalStorageWritable()) {

@@ -16,6 +16,9 @@ extern "C" {
 JNIEXPORT jint JNICALL Java_com_thingsbook_it_LibGit2_clone
 (JNIEnv *, jclass, jstring, jstring);
 
+JNIEXPORT void JNICALL Java_com_thingsbook_it_LibGit2_init
+(JNIEnv *, jclass);
+
 
 #ifdef __cplusplus
 }

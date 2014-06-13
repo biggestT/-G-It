@@ -35,5 +35,9 @@ n* 2014-04-15 gitlib integration 3 hrs 14 min
 * 2014-05-23 cloning function 8 hrs 43 min
 * 2014-05-26 OpenSSL issue 2 hrs 58 min
 * 2014-05-29 errors in cloning method 4 hrs 52 min
+* 2014-05-30 used gdb to figure out sigbus error 3 hrs 19 min
+* 2014-06-01 read up on memory alignment due to sigbus error 4 hrs 0 min
+* 2014-06-10 changed to bare repository cloning 2 hrs 13 min
+* 2014-06-11 stupid gdb not working after cyanogenmod update issues 2 hrs 15 min
 
-### Total time spent: 158 hours and 25 minutes 
+### Total time spent: 170 hours and 12 minutes 

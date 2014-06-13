@@ -15,21 +15,10 @@
 // declare check error helping function
 static void check_error(int, const char *);
 
-JNIEXPORT jint JNICALL Java_com_thingsbook_it_LibGit2_clone
-(JNIEnv * env, jclass cls, jstring url, jstring localPath)
+// Get information about LibGit2 
+JNIEXPORT jstring JNICALL Java_com_thingsbook_it_LibGit2_get_info
+(JNIEnv * env, jclass cls)
 {
-	git_threads_init();
-
-	git_repository *cloned_repo = NULL;
-	int error;
-
-	LOGD("trying to clone a repository");
-
-	const char *c_url = (*env)->GetStringUTFChars(env, url, NULL);
-	const char *c_local_path = (*env)->GetStringUTFChars(env, localPath, NULL);
-
-	LOGD("%s", c_url);
-	LOGD("%s", c_local_path);
 	
 	// print username
 	struct passwd *p = getpwuid(getuid());  // Check for NULL!
@@ -39,9 +28,37 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_LibGit2_clone
 	int major, minor, rev;
 	git_libgit2_version(&major, &minor, &rev);
 	LOGD("Libgit2 version: %d.%d.%d\n", major, minor, rev);
+	
+}
 
+JNIEXPORT void JNICALL Java_com_thingsbook_it_LibGit2_init
+(JNIEnv * env, jclass cls)
+{
+	git_threads_init();
+}
+
+JNIEXPORT jint JNICALL Java_com_thingsbook_it_LibGit2_clone
+(JNIEnv * env, jclass cls, jstring url, jstring localPath)
+{
+
+	git_repository *cloned_repo = NULL;
+	git_clone_options clone_opts = GIT_CLONE_OPTIONS_INIT;
+	// clone_opts.bare = 1;
+	git_checkout_options checkout_opts = GIT_CHECKOUT_OPTIONS_INIT;
+
+	int error;
+
+	LOGD("cloning repository ...");
+
+	const char *c_url = (*env)->GetStringUTFChars(env, url, NULL);
+	const char *c_local_path = (*env)->GetStringUTFChars(env, localPath, NULL);
+
+	LOGD("%s", c_url);
+	LOGD("%s", c_local_path);
+	
+	
 	// actually call library to clone repository
-	error = git_clone(&cloned_repo , c_url, c_local_path, NULL);
+	error = git_clone(&cloned_repo , c_url, c_local_path, &clone_opts);
 
 	check_error(error, "cloning repository");
 
