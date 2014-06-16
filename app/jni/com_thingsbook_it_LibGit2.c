@@ -43,7 +43,6 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_LibGit2_clone
 
 	git_repository *cloned_repo = NULL;
 	git_clone_options clone_opts = GIT_CLONE_OPTIONS_INIT;
-	// clone_opts.bare = 1;
 	git_checkout_options checkout_opts = GIT_CHECKOUT_OPTIONS_INIT;
 
 	int error;
@@ -60,7 +59,12 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_LibGit2_clone
 	// actually call library to clone repository
 	error = git_clone(&cloned_repo , c_url, c_local_path, &clone_opts);
 
-	check_error(error, "cloning repository");
+	if (error != 0) {
+		check_error(error, "cloning repository");
+	}
+	else {
+		git_repository_free(cloned_repo);
+	}
 
 	return error;
 }

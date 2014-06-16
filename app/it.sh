@@ -43,11 +43,12 @@ buildLibGit2() {
 	# make p_chmod a no-op, android does not allow us to change file permission modes 
 	printMessage "removing chmod operation"
 	LIBGIT2_POSIX_PATH="$LIBGIT2_SOURCE_PATH/src/posix.h"
+	printMessage $LIBGIT2_POSIX_PATH
 	LIBGIT2_POSIX_BACKUP_PATH="$LIBGIT2_SOURCE_PATH/src/posix_original.h"
 	printf "#include \"always_true.h\"\nint always_true() { return 0; }" > "$LIBGIT2_SOURCE_PATH/src/always_true.c"
 	printf "int always_true();" > "$LIBGIT2_SOURCE_PATH/src/always_true.h"
 	cp $LIBGIT2_POSIX_PATH "$LIBGIT2_POSIX_BACKUP_PATH"
-	sed -i "s/^#define\sp_chmod(p, m).*$/#include \"always_true.h\"\n#define p_chmod(p, m) always_true()\nextern int always_true();\n/" $LIBGIT2_POSIX_PATH
+	sed -i "s/^#define\sp_chmod(p,m).*$/#include \"always_true.h\"\n#define p_chmod(p, m) always_true()\nextern int always_true();\n/" $LIBGIT2_POSIX_PATH
 
 	printMessage "generating libgit2 Cmake files"
 	cp "$LIBGIT2_SOURCE_PATH/CMakeLists.txt" $LIBGIT2_BUILD_PATH

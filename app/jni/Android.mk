@@ -1,5 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 APP_OPTIM := debug
+APP_ABI := armeabi-v7a
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := gpg-error
