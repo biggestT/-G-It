@@ -49,7 +49,7 @@ static void print_progress(const progress_data *pd)
 	char output[50];
 
 	LOGD("print_progress called!");
-	
+
 	if (pd->fetch_progress.received_objects == pd->fetch_progress.total_objects) {
 		sprintf(output, "Resolving deltas %d/%d\r",
 		       pd->fetch_progress.indexed_deltas,
@@ -106,7 +106,7 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 	java_class = cls;
 
 	// try calling java function
-	progress_callback("instant hello from C to java");
+	progress_callback("libgit2 has started cloning");
 
 	progress_data pd = {{0}};
 

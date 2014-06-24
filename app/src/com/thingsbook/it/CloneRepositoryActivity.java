@@ -28,22 +28,22 @@ public class CloneRepositoryActivity extends Activity implements Runnable
     Intent intent = getIntent();
     basePath = getIntent().getStringExtra(MainActivity.EXTRA_PATH) + "/ptt";
     
-    Thread currentThread = new Thread(this);
-    currentThread.start();
-
     progressText = (TextView) findViewById(R.id.clone_progress);
+
+    if(progressText != null) {
+      Thread currentThread = new Thread(this);
+      currentThread.start();
+    }
+
 
   }
 
-
   @Override
   public void run() {
-      deleteDirectory(new File(basePath));
-      progressText.setText("Cloning ...");
       
-      // start cloning
+      deleteDirectory(new File(basePath));
+      
       NativeGit.cloneWithProgress("https://github.com/biggestT/project-time-tracker", basePath, threadHandler);
-      threadHandler.sendEmptyMessage(0);
   }
 
 

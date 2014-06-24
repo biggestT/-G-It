@@ -16,6 +16,7 @@ public class NativeGit {
 
 	private void progressCallback(String t) {
 		Logger.log(t);
+
 		Bundle b = new Bundle();
 		b.putString("progressText", t);
 		Message msg = Message.obtain(currentHandler);
@@ -23,10 +24,14 @@ public class NativeGit {
 		currentHandler.sendMessage(msg);
   }
 
+  // Outward functions:
+  // ==========
+
   public static void cloneWithProgress(String url, String path, Handler ch) {
   	currentHandler = ch;
   	doClone(url, path);
   }
+  
 	static {
 		System.loadLibrary("com_thingsbook_it_NativeGit");
 	}

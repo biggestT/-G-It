@@ -2,22 +2,10 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
   android:orientation="vertical" >
-  <EditText 
-    android:id="@+id/input_remote_url"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:hint="@string/input_remote_url" 
-  />
-  <Button
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/button_clone"
-    android:onClick="doClone" 
-  />
   <TextView
     android:id="@+id/clone_progress"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:gravity="center"
   />
 </LinearLayout>
