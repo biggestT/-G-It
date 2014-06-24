@@ -15,6 +15,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
 
+import com.thingsbook.it.Logger;
+
 public class Thing implements Parcelable
 {
 
@@ -122,7 +124,7 @@ public class Thing implements Parcelable
       return outputPath;
     }
     catch(Exception ex) {
-    	Log.e(TAG, "exception:", ex);
+    	Logger.log(ex);
     	return null;
     }
 	}	

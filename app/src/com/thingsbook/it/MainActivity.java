@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.widget.EditText;
 import android.view.View;
 import android.widget.GridView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.ListView;
@@ -24,7 +23,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 
-import com.thingsbook.it.LibGit2;
+import com.thingsbook.it.NativeGit;
 import com.thingsbook.it.Thing;
 import com.thingsbook.it.ThingsAdapter;
 import com.thingsbook.it.ThingProfileActivity;
@@ -32,8 +31,6 @@ import com.thingsbook.it.CloneRepositoryActivity;
 
 public class MainActivity extends Activity
 {
-
-  private static final String TAG = "ItApplication";
 
   static final String ACTION_VIEW_THING = "com.thingsbook.it.VIEW_THING";
   static final String EXTRA_THING = "com.thingsbook.it.EXTRA_THING";
@@ -47,9 +44,6 @@ public class MainActivity extends Activity
   {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
-
-    // initiate LibGit2 instance, i.e initiate threads
-    LibGit2.init();
 
     ArrayList<Thing> things = new ArrayList<Thing>();
 

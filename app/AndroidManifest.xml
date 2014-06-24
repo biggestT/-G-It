@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.thingsbook.it"
-      debuggable="true"
       android:versionCode="1"
       android:versionName="1.0">
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
       <uses-permission android:name="android.permission.INTERNET" /> 
-      <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="18" />
+      <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="18" />
     <application 
+      android:debuggable="true"
      android:icon="@drawable/itlogo"
       android:theme="@android:style/Theme.Holo.Light">
         <activity android:name=".MainActivity"

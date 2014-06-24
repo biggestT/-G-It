@@ -4,16 +4,19 @@ import java.io.File;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.content.Intent;
 import android.widget.TextView;
 import android.view.View;
+import android.os.Message;
 
-import com.thingsbook.it.LibGit2;
+import com.thingsbook.it.NativeGit;
 
-public class CloneRepositoryActivity extends Activity
+public class CloneRepositoryActivity extends Activity implements Runnable
 {
 
   private String basePath;
+  private TextView progressText;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -25,19 +28,30 @@ public class CloneRepositoryActivity extends Activity
     Intent intent = getIntent();
     basePath = getIntent().getStringExtra(MainActivity.EXTRA_PATH) + "/ptt";
     
+    Thread currentThread = new Thread(this);
+    currentThread.start();
+
+    progressText = (TextView) findViewById(R.id.clone_progress);
 
   }
 
-  public void doClone(View v) {
-    // delete previous test folder
-    deleteDirectory(new File(basePath));
 
-    // start cloning
-    int status = LibGit2.clone("https://github.com/biggestT/lifelab.git", basePath);
+  @Override
+  public void run() {
+      deleteDirectory(new File(basePath));
+      progressText.setText("Cloning ...");
+      
+      // start cloning
+      NativeGit.cloneWithProgress("https://github.com/biggestT/project-time-tracker", basePath, threadHandler);
+      threadHandler.sendEmptyMessage(0);
   }
-  
-  // declare native clone method from libgit2
-  // public native int git_clone(git_repository **out, const char *url, const char *local_path, const git_clone_options *options);
+
+
+  private Handler threadHandler = new Handler() {
+    public void handleMessage(Message msg) {
+      progressText.setText(msg.getData().getString("progressText"));
+    }
+  };
 
   static public boolean deleteDirectory(File path) {
     if( path.exists() ) {

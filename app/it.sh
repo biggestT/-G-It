@@ -3,7 +3,6 @@ PACKAGE_NAME="com.thingsbook.it"
 TAG_NAME="ItApplication"
 ACTIVITY=.MainActivity
 SOURCE_PATH="$(pwd)/src/"
-echo $SOURCE_PATH
 
 buildLibGit2() {
 	printMessage "Building Libgit2 for Android"
@@ -74,17 +73,17 @@ buildJNI()
 {
 	printMessage "Compiling native code"
 	cd jni/
-	ndk-build NDK_DEBUG=1 
+	ndk-build NDK_DEBUG=1
 	cd ..
 }
 
 debugApplication() 
 {
-	printMessage "Stopping app if it is running already ..."
+	# printMessage "Stopping app if it is running already ..."
 	adb shell pm clear $PACKAGE_NAME
-	printMessage "Starting application on phone"
+	# printMessage "Starting application on phone"
 	adb shell am start -e debug true -n $PACKAGE_NAME/$ACTIVITY
-	# sleep 1
+	# # sleep 1
 	
 	if [ "$1" == "logcat" ]; then
 	# LOGCAT DEBUGGING
@@ -100,7 +99,7 @@ debugApplication()
 	adb forward tcp:7777 jdwp:$JDWP_ID
 	jdb -sourcepath $SOURCE_PATH -attach localhost:7777
 	elif [ "$1" == "gdb" ]; then
-	ndk-gdb
+	ndk-gdb.py --start --force --nowait
 fi
 }
 
@@ -108,12 +107,10 @@ installApplication()
 {
 	printMessage "Building debug version of application with ant"
 	ant debug
-
-	printMessage "Uninstalling old version of application"
-	adb uninstall com.thingsbook.it
-
-	printMessage "Installing new version of application"
-	adb install ~/thesis/app/bin/it-debug.apk	
+	printMessage "uninstalling old version of application"
+	adb uninstall $PACKAGE_NAME
+	printMessage "installing new version"
+	ant installd
 }
 
 printMessage()

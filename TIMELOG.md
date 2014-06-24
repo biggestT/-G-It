@@ -39,5 +39,11 @@ n* 2014-04-15 gitlib integration 3 hrs 14 min
 * 2014-06-01 read up on memory alignment due to sigbus error 4 hrs 0 min
 * 2014-06-10 changed to bare repository cloning 2 hrs 13 min
 * 2014-06-11 stupid gdb not working after cyanogenmod update issues 2 hrs 15 min
+* 2014-06-13 got pass clone issue 4 hrs 21 min
+* 2014-06-16 clone progress display 3 hrs 46 min
+* 2014-06-17 openssl fix 4 hrs 8 min
+* 2014-06-18 OpenSSL problems 4 hrs 27 min
+* 2014-06-19 OopenSSL bullshit 3 hrs 35 min
+* 2014-06-23 clone progress indication 4 hrs 10 min
 
-### Total time spent: 170 hours and 12 minutes 
+### Total time spent: 194 hours and 39 minutes 

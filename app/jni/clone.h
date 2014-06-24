@@ -2,22 +2,19 @@
 #include <jni.h>
 
 /* Header for class com_thingsbook_it_LibGit2 */
-#ifndef _Included_com_thingsbook_it_LibGit2
-#define _Included_com_thingsbook_it_LibGit2
+#ifndef _Included_com_thingsbook_it_NativeGit
+#define _Included_com_thingsbook_it_NativeGit
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 /*
- * Class:     com_thingsbook_it_LibGit2
- * Method:    clone
+ * Class:     com_thingsbook_it_Git
+ * Method:    doClone
  * Signature: (Ljava/lang/String;Ljava/lang/String)I
  */
-JNIEXPORT jint JNICALL Java_com_thingsbook_it_LibGit2_clone
+JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 (JNIEnv *, jclass, jstring, jstring);
-
-JNIEXPORT void JNICALL Java_com_thingsbook_it_LibGit2_init
-(JNIEnv *, jclass);
 
 
 #ifdef __cplusplus
