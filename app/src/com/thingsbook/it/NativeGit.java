@@ -14,11 +14,12 @@ public class NativeGit {
 
   private native static int doClone(String URL, String LocalPath);
 
-	private static void progressCallback(String t) {
+	private static void progressCallback(String t, int p) {
 		Logger.log(t);
 
 		Bundle b = new Bundle();
 		b.putString("progressText", t);
+		b.putInt("progressPercent", p);
 		Message msg = Message.obtain(currentHandler);
 		msg.setData(b);
 		currentHandler.sendMessage(msg);

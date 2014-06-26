@@ -2,6 +2,7 @@ package com.thingsbook.it;
 
 import java.io.File;
 
+import android.widget.ProgressBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ public class CloneRepositoryActivity extends Activity implements Runnable
 
   private String basePath;
   private TextView progressText;
+  private ProgressBar progressBar;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,8 @@ public class CloneRepositoryActivity extends Activity implements Runnable
     Intent intent = getIntent();
     basePath = getIntent().getStringExtra(MainActivity.EXTRA_PATH) + "/ptt";
     
-    progressText = (TextView) findViewById(R.id.clone_progress);
+    progressText = (TextView) findViewById(R.id.clone_progress_text);
+    progressBar = (ProgressBar) findViewById(R.id.clone_progress_bar);
 
     if(progressText != null) {
       Thread currentThread = new Thread(this);
@@ -44,12 +47,14 @@ public class CloneRepositoryActivity extends Activity implements Runnable
       deleteDirectory(new File(basePath));
       
       NativeGit.cloneWithProgress("https://github.com/biggestT/project-time-tracker", basePath, threadHandler);
+      finish();
   }
 
 
   private Handler threadHandler = new Handler() {
     public void handleMessage(Message msg) {
       progressText.setText(msg.getData().getString("progressText"));
+      progressBar.setProgress(msg.getData().getInt("progressPercent"));
     }
   };
 

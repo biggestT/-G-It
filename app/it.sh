@@ -91,7 +91,7 @@ debugApplication()
 	PID=$(adb shell ps | grep ${PACKAGE_NAME} | cut -c10-15)
 	echo "package tag name: $TAG_NAME"
 	echo "PID: $PID"
-	adb logcat -C | egrep "($PID|$TAG_NAME)"
+	adb logcat  | egrep "($PID|$TAG_NAME)"
   elif [ "$1" == "jdwp" ]; then
   #  JDB DEBUGGING
   JDWP_ID=$(adb jdwp | tail -1)

@@ -20,7 +20,7 @@
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
 // Declate JNI metainformation variables used for callbacks to java-code
-static const char *sigStr = "(Ljava/lang/String;)V";
+static const char *sigStr = "(Ljava/lang/String;I)V";
 static JNIEnv *this_env;
 static jmethodID mid_callback;
 static jclass java_class;
@@ -34,8 +34,8 @@ typedef struct progress_data {
 	const char *path;
 } progress_data;
 
-static void progress_callback(char *progress) {
-	(*this_env)->CallStaticVoidMethod(this_env, java_class, mid_callback, (*this_env)->NewStringUTF(this_env, progress));
+static void progress_callback(char *progress, int percent) {
+	(*this_env)->CallStaticVoidMethod(this_env, java_class, mid_callback, (*this_env)->NewStringUTF(this_env, progress), percent);
 }
 
 static void print_progress(const progress_data *pd)
@@ -45,10 +45,11 @@ static void print_progress(const progress_data *pd)
 	int checkout_percent = pd->total_steps > 0
 		? (100 * pd->completed_steps) / pd->total_steps
 		: 0;
+	float progress_percent = (network_percent + index_percent + checkout_percent) / 3.0;
 	int kbytes = pd->fetch_progress.received_bytes / 1024;
 	char output[50];
 
-	LOGD("print_progress called!");
+	LOGD("progress percentage: %.2f", progress_percent);
 
 	if (pd->fetch_progress.received_objects == pd->fetch_progress.total_objects) {
 		sprintf(output, "Resolving deltas %d/%d\r",
@@ -59,7 +60,7 @@ static void print_progress(const progress_data *pd)
 		   network_percent, kbytes,
 		   pd->fetch_progress.received_objects, pd->fetch_progress.total_objects);
 	}
-	progress_callback(output);
+	progress_callback(output, progress_percent);
 }
 
 
@@ -105,8 +106,6 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 	this_env = env;
 	java_class = cls;
 
-	// try calling java function
-	// progress_callback("libgit2 has started cloning");
 
 	progress_data pd = {{0}};
 
@@ -125,6 +124,7 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 	int error;
 
 	LOGD("cloning repository ...");
+	progress_callback("getting product information ...", 0);
 
 
 	const char *c_url = (*env)->GetStringUTFChars(env, url, NULL);
