@@ -45,5 +45,6 @@ n* 2014-04-15 gitlib integration 3 hrs 14 min
 * 2014-06-18 OpenSSL problems 4 hrs 27 min
 * 2014-06-19 OopenSSL bullshit 3 hrs 35 min
 * 2014-06-23 clone progress indication 4 hrs 10 min
+* 2014-06-24 cloning progress indicator, communication between native and java code 4 hrs 24 min
 
-### Total time spent: 194 hours and 39 minutes 
+### Total time spent: 199 hours and 3 minutes 

@@ -14,7 +14,7 @@ public class NativeGit {
 
   private native static int doClone(String URL, String LocalPath);
 
-	private void progressCallback(String t) {
+	private static void progressCallback(String t) {
 		Logger.log(t);
 
 		Bundle b = new Bundle();

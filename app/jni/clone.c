@@ -35,7 +35,7 @@ typedef struct progress_data {
 } progress_data;
 
 static void progress_callback(char *progress) {
-	(*this_env)->CallVoidMethod(this_env, java_class, mid_callback, (*this_env)->NewStringUTF(this_env, progress));
+	(*this_env)->CallStaticVoidMethod(this_env, java_class, mid_callback, (*this_env)->NewStringUTF(this_env, progress));
 }
 
 static void print_progress(const progress_data *pd)
@@ -97,7 +97,7 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 	git_threads_init();
 
 	// set variables to allow calling java function from here
-	mid_callback = (*env)->GetMethodID(env, cls, "progressCallback", sigStr);
+	mid_callback = (*env)->GetStaticMethodID(env, cls, "progressCallback", sigStr);
 	if (mid_callback == 0) {
 		LOGD("No method ID found for callback function");
 		return;
@@ -106,7 +106,7 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 	java_class = cls;
 
 	// try calling java function
-	progress_callback("libgit2 has started cloning");
+	// progress_callback("libgit2 has started cloning");
 
 	progress_data pd = {{0}};
 
