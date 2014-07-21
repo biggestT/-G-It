@@ -37,7 +37,7 @@ public class ThingProfileActivity extends Activity {
 
 		this.setTitle(thing.getName());
 
-		final ImageView pictureView = (ImageView) findViewById(R.id.thingimage);
+		ImageView pictureView = (ImageView) findViewById(R.id.thingimage);
     thing.setImageViewImage(pictureView);
 
 		File folder = new File(thing.getFolderPath());

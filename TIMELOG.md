@@ -47,5 +47,6 @@ n* 2014-04-15 gitlib integration 3 hrs 14 min
 * 2014-06-23 clone progress indication 4 hrs 10 min
 * 2014-06-24 cloning progress indicator, communication between native and java code 4 hrs 24 min
 * 2014-06-26 emulator setup and cloning progressbar 2 hrs 30 min
+* 2014-07-20 read in pro Git 2 hrs 0 min
 
 ### Total time spent: 201 hours and 33 minutes 
