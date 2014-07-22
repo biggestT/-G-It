@@ -21,11 +21,13 @@ import java.util.ArrayList;
 
 import com.thingsbook.it.Thing;
 import com.thingsbook.it.MainActivity;
+import com.thingsbook.it.Logger;
 
 public class ThingProfileActivity extends Activity {
 
 	private static final String TAG = "ItApplication";
   private ImageView pictureView;
+  private Thing thing;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class ThingProfileActivity extends Activity {
 
 	// Get the message from the intent
 		Bundle b = getIntent().getExtras();
-		Thing thing = b.getParcelable(MainActivity.EXTRA_THING);
+		thing = b.getParcelable(MainActivity.EXTRA_THING);
 
 		this.setTitle(thing.getName());
 
@@ -44,26 +46,28 @@ public class ThingProfileActivity extends Activity {
 		File folder = new File(thing.getFolderPath());
 		String filenames[] = folder.list();
 
-		ArrayAdapter<String> fileAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, filenames);
-		ListView fileListView = (ListView) findViewById(R.id.filelist);
+    if (filenames != null) {
+      Logger.log("lengt of filenames list" + filenames.length);
+      ArrayAdapter<String> fileAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, filenames);
+      ListView fileListView = (ListView) findViewById(R.id.filelist);
+      fileListView.setAdapter(fileAdapter);
+      final Context mContext = this;
+      final String folderPath = thing.getFolderPath() + "/";
 
-		fileListView.setAdapter(fileAdapter);
+      fileListView.setOnItemClickListener(new OnItemClickListener() {
+       public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+        File myFile = new File((String) folderPath + parent.getItemAtPosition(position));
+        try {
+         Log.d(TAG, myFile.getAbsolutePath());
+         openFile(mContext, myFile);
+       }
+       catch(IOException ex) {
 
-		final Context mContext = this;
-		final String folderPath = thing.getFolderPath() + "/";
+       }
+     } 
+   });
+    }
 
-		fileListView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				File myFile = new File((String) folderPath + parent.getItemAtPosition(position));
-				try {
-					Log.d(TAG, myFile.getAbsolutePath());
-					openFile(mContext, myFile);
-				}
-				catch(IOException ex) {
-
-				}
-			} 
-		});
 
   }
 

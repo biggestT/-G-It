@@ -16,6 +16,9 @@ extern "C" {
 JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 (JNIEnv *, jclass, jstring, jstring);
 
+JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_JNI_Onload
+(JavaVM* jvm, void *reserved);
+
 
 #ifdef __cplusplus
 }

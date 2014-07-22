@@ -118,10 +118,10 @@ public class Thing implements Parcelable
       final int THUMBNAIL_WIDTH = Math.round((float)shrinkFactor*imageBitmap.getWidth());
       imageBitmap = Bitmap.createScaledBitmap(imageBitmap, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, false);
 
-      String outputPath = path + "/.thumbnail.jpg";
+      String outputPath = path + "/.thumbnail.png";
       File file = new File(outputPath);
       FileOutputStream fos = new FileOutputStream(file);
-      imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+      imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
 
       return outputPath;
     }

@@ -22,9 +22,10 @@
 // Declate JNI metainformation variables used for callbacks to java-code
 static const char *sigStr = "(Ljava/lang/String;I)V";
 static JNIEnv *this_env;
-static jmethodID mid_callback;
+static jmethodID mid_clone_callback;
 static jclass java_class;
 static char *jmethod_name;
+const char* jClassPath="com/thingsbook/it/NativeGit";
 
 // struct for holding information abput cloning progress
 typedef struct progress_data {
@@ -34,8 +35,25 @@ typedef struct progress_data {
 	const char *path;
 } progress_data;
 
+jint JNI_OnLoad(JavaVM* vm, void* reserved) {
+
+	JNIEnv *env;
+	LOGD("JNI_OnLoad called");
+	
+	if ((*vm)->GetEnv(vm, (void**) &env, JNI_VERSION_1_6) != JNI_OK) {
+		LOGE("Failed to get the environment using GetEnv()");
+		return -1;
+	}
+
+	// store java method IDs from class 
+	java_class=(*env)->FindClass(env, jClassPath);
+	mid_clone_callback = (*env)->GetStaticMethodID(env, java_class, "progressCallback", sigStr);
+
+	return JNI_VERSION_1_6;
+
+}
 static void progress_callback(char *progress, int percent) {
-	(*this_env)->CallStaticVoidMethod(this_env, java_class, mid_callback, (*this_env)->NewStringUTF(this_env, progress), percent);
+	(*this_env)->CallStaticVoidMethod(this_env, java_class, mid_clone_callback, (*this_env)->NewStringUTF(this_env, progress), percent);
 }
 
 static void print_progress(const progress_data *pd)
@@ -95,18 +113,8 @@ static void check_error(int error_code, const char *action)
 JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 (JNIEnv * env, jclass cls, jstring url, jstring localPath)
 {
-	git_threads_init();
 
-	// set variables to allow calling java function from here
-	mid_callback = (*env)->GetStaticMethodID(env, cls, "progressCallback", sigStr);
-	if (mid_callback == 0) {
-		LOGD("No method ID found for callback function");
-		return;
-	}
 	this_env = env;
-	java_class = cls;
-
-
 	progress_data pd = {{0}};
 
 	git_repository *cloned_repo = NULL;
@@ -133,17 +141,16 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 	LOGD("%s", c_url);
 	LOGD("%s", c_local_path);
 	
-	// actually call library to clone repository
-	git_clone(&cloned_repo , c_url, c_local_path, &clone_opts);
+	// call libgit to clone repository
+	error = git_clone(&cloned_repo , c_url, c_local_path, &clone_opts);
+	if (error != 0) {
+		check_error(error, "cloning repository");
+	}
+	else {
+		git_repository_free(cloned_repo);
+	}
 
-	// if (error != 0) {
-		// check_error(error, "cloning repository");
-	// }
-	// else if (cloned_repo) {
-		// git_repository_free(cloned_repo);
-	// }
-// 
-	// return error;
+	return error;
 }
 
 

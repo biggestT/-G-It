@@ -13,7 +13,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Bitmap;
 
 
-
 public class ThingsAdapter extends BaseAdapter {
 
 	private Context mContext;

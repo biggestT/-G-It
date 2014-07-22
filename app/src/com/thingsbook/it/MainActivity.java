@@ -28,6 +28,7 @@ import com.thingsbook.it.Thing;
 import com.thingsbook.it.ThingsAdapter;
 import com.thingsbook.it.ThingProfileActivity;
 import com.thingsbook.it.CloneRepositoryActivity;
+import com.thingsbook.it.Logger;
 
 public class MainActivity extends Activity
 {
@@ -37,35 +38,34 @@ public class MainActivity extends Activity
   static final String EXTRA_PATH = "com.thingsbook.it.EXTRA_PATH";
 
   private String storagePath;
+  private GridView thingsGridView;
+  private ThingsAdapter thingsAdapter;
+  private ArrayList<Thing> things;
+  private File storage;
 
   /** Called when the activity is first created. */
   @Override
   public void onCreate(Bundle savedInstanceState)
   {
+    Logger.log("Main onCreate");
+
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
-
-    ArrayList<Thing> things = new ArrayList<Thing>();
+    things = new ArrayList<Thing>();
 
     if (isExternalStorageWritable()) {
-      File storage = getStorageDir();
-      this.storagePath = storage.getAbsolutePath();
+      storage = getStorageDir();
+      
+      storagePath = storage.getAbsolutePath();
 
-      File files[] = storage.listFiles();
-      for (int i=0; i<files.length; i++ ) {
-        if (files[i].isDirectory()){
-          things.add(new Thing(files[i]));
-        }
-      }
-
-      GridView gridview = (GridView) findViewById(R.id.gridview);
-      ThingsAdapter thingsadapter = new ThingsAdapter(this, things);
+      thingsGridView = (GridView) findViewById(R.id.thingsgridview);
+      thingsAdapter = new ThingsAdapter(this, things);
     
-      gridview.setAdapter(thingsadapter);
+      thingsGridView.setAdapter(thingsAdapter);
 
       final Context context = this;
 
-      gridview.setOnItemClickListener(new OnItemClickListener() {
+      thingsGridView.setOnItemClickListener(new OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
           // Start a new activity that shows the clicked things whole profile
           Intent intent = new Intent(context, ThingProfileActivity.class);
@@ -78,6 +78,13 @@ public class MainActivity extends Activity
     }
     
   }
+  @Override
+  public void onResume() {
+    Logger.log("Main onResume");
+    super.onResume();
+    updateThingsList();
+    thingsAdapter.notifyDataSetChanged();
+  }
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,14 +94,25 @@ public class MainActivity extends Activity
     return super.onCreateOptionsMenu(menu);
   } 
 
+  // Update thingslist
+  private void updateThingsList() {
+    File files[] = storage.listFiles();
+    things.clear(); 
+      for (int i=0; i<files.length; i++ ) {
+        if (files[i].isDirectory()){
+          things.add(new Thing(files[i]));
+        }
+      }
+  }
   // Called when user intitiates a clone
   public void cloneRepository(MenuItem item) {
   	
   	// Start a a new activity
   	Intent intent = new Intent(this, CloneRepositoryActivity.class);
-  	intent.putExtra(EXTRA_PATH, this.storagePath);
+  	intent.putExtra(EXTRA_PATH, storagePath);
   	startActivity(intent);
 
+    Logger.log("Starting CloneRepositoryActivity");
   }
 
   public boolean isExternalStorageWritable() {
