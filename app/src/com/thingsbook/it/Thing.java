@@ -103,6 +103,8 @@ public class Thing implements Parcelable
 		else {
 			iv.setImageResource(R.drawable.placeholder);
 		}
+		iv.setBackgroundResource(android.R.color.transparent);
+
 	}
 
 	// Downsample larger image files to thumbnail bitmap and return URL

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.widget.TextView;
 import android.view.View;
 import android.os.Message;
+import android.graphics.drawable.Drawable;
 
 import com.thingsbook.it.NativeGit;
 
@@ -32,7 +33,8 @@ public class CloneRepositoryActivity extends Activity implements Runnable
     
     progressText = (TextView) findViewById(R.id.clone_progress_text);
     progressBar = (ProgressBar) findViewById(R.id.clone_progress_bar);
-
+    Drawable progressBarStyle = getResources().getDrawable(R.drawable.progressbar);
+    progressBar.setProgressDrawable(progressBarStyle);
     if(progressText != null) {
       Thread currentThread = new Thread(this);
       currentThread.start();
@@ -46,7 +48,7 @@ public class CloneRepositoryActivity extends Activity implements Runnable
       
       deleteDirectory(new File(basePath));
       
-      NativeGit.cloneWithProgress("https://github.com/biggestT/project-time-tracker", basePath, threadHandler);
+      NativeGit.cloneWithProgress("https://github.com/biggestT/example-product.git", basePath, threadHandler);
       finish();
   }
 

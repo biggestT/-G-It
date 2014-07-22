@@ -25,6 +25,7 @@ import com.thingsbook.it.MainActivity;
 public class ThingProfileActivity extends Activity {
 
 	private static final String TAG = "ItApplication";
+  private ImageView pictureView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class ThingProfileActivity extends Activity {
 
 		this.setTitle(thing.getName());
 
-		ImageView pictureView = (ImageView) findViewById(R.id.thingimage);
+		pictureView = (ImageView) findViewById(R.id.thingimage);
     thing.setImageViewImage(pictureView);
 
 		File folder = new File(thing.getFolderPath());
