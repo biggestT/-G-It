@@ -6,13 +6,17 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.INTERNET" /> 
   <uses-permission android:name="android.permission.NFC"/>
+  <uses-feature android:name="android.hardware.camera"
+                android:required="false" />
   <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="18" />
 <application 
   android:name=".TingApp"
   android:debuggable="true"
- android:icon="@drawable/itlogo"
- android:label="@string/app_name"
+  android:icon="@drawable/itlogo"
+  android:label="@string/app_name"
   android:theme="@android:style/Theme.Holo.Light">
+
+  <!-- Home activity displays all the user's Tings -->
     <activity android:name=".MainActivity"
               android:label="@string/app_name">
       <intent-filter>
@@ -20,10 +24,12 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+
+    <!-- Clone a remote repository when a Ting formatted Mifare tag is detected -->
     <activity
-    android:name=".CloneRepositoryActivity"
-    android:label="@string/title_activity_clone_repository"
-    android:parentActivityName=".MainActivity" >
+      android:name=".CloneRepositoryActivity"
+      android:label="@string/title_activity_clone_repository"
+      android:parentActivityName=".MainActivity" >
     <intent-filter>
         <action android:name="android.nfc.action.TECH_DISCOVERED"/>
     </intent-filter>
@@ -32,14 +38,23 @@
     <meta-data
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".MainActivity" />
-</activity>
-<activity
-    android:name=".ThingProfileActivity"
-    android:label="@string/title_activity_display_thing"
-    android:parentActivityName=".MainActivity" >
+    </activity>
+
+    <!-- Show a Ting's profile once its clicked in the grid of all other Tings -->
+    <activity
+      android:name=".ThingProfileActivity"
+      android:label="@string/title_activity_display_thing"
+      android:parentActivityName=".MainActivity" >
     <meta-data
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".MainActivity" />
-</activity>
+    </activity>
+
+    <!-- Initiate a new user-created Ting -->
+    <activity
+      android:name=".NewTingActivity"
+      android:label="@string/title_activity_init_ting"
+      android:parentActivityName=".MainActivity">
+    </activity>
 </application>
 </manifest>

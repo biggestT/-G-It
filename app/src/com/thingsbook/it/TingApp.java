@@ -7,6 +7,7 @@ import android.app.Application;
 
 public class TingApp extends Application {
 
+	// state variables of interest to multiple different activities
   private File storageDir;
   private boolean isExternalStorageWritable;
 
@@ -15,6 +16,12 @@ public class TingApp extends Application {
   	storageDir = findStorageDir();
   	isExternalStorageWritable = isExternalStorageWritable();
   }
+
+  // Every time some configuration changes we need to check if external storage is still writeable
+  // @Override
+  // public void onConfigurationChanged(Configuration newConfig) {
+  // 	isExternalStorageWritable = isExternalStorageWritable();
+  // }
 
   private File findStorageDir() {
     // Get the directory for the user's public pictures directory.
@@ -43,5 +50,21 @@ public class TingApp extends Application {
 
   public boolean checkIfWritable() {
   	return isExternalStorageWritable;
+  }
+
+  // utilityfunction to delete directory
+  public boolean deleteDirectory(File path) {
+    if( path.exists() ) {
+      File[] files = path.listFiles();
+      for(int i=0; i<files.length; i++) {
+         if(files[i].isDirectory()) {
+           deleteDirectory(files[i]);
+         }
+         else {
+           files[i].delete();
+         }
+      }
+    }
+    return( path.delete() );
   }
 }

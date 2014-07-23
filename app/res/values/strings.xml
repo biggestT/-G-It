@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tings</string>
-    <string name="button_clone">Clone</string>
     <string name="action_new">New</string>
+    <string name="ting_tags_hint">add some tags</string>
+    <string name="ting_create_button">Create</string>
     <string name="title_activity_display_thing">Ting profile</string>
     <string name="title_activity_clone_repository">Clone Ting</string>
+    <string name="title_activity_init_ting">New Ting</string>
 </resources>

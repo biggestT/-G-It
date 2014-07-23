@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
 import android.widget.Toast;
+import android.provider.MediaStore;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ import com.thingsbook.it.Thing;
 import com.thingsbook.it.ThingsAdapter;
 import com.thingsbook.it.ThingProfileActivity;
 import com.thingsbook.it.CloneRepositoryActivity;
+import com.thingsbook.it.NewTingActivity;
 import com.thingsbook.it.Logger;
 import com.thingsbook.it.TingApp;
 
@@ -37,11 +39,13 @@ public class MainActivity extends Activity
   static final String EXTRA_THING = "com.thingsbook.it.EXTRA_THING";
   static final String EXTRA_PATH = "com.thingsbook.it.EXTRA_PATH";
 
+
   private GridView thingsGridView;
   private ThingsAdapter thingsAdapter;
   private ArrayList<Thing> things;
   private File storage;
   private TingApp myApp;
+
   /** Called when the activity is first created. */
   @Override
   public void onCreate(Bundle savedInstanceState)
@@ -50,11 +54,12 @@ public class MainActivity extends Activity
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
-    myApp = ((TingApp)getApplicationContext());
+    myApp = (TingApp) getApplicationContext();
     things = new ArrayList<Thing>();
 
     if (myApp.checkIfWritable()) {
 
+      Logger.log("external storage is writeable");
       storage = myApp.getStorageDir();
 
       thingsGridView = (GridView) findViewById(R.id.thingsgridview);
@@ -113,8 +118,12 @@ public class MainActivity extends Activity
     Logger.log("Starting CloneRepositoryActivity");
   }
 
-  
+  public void createNewTing(MenuItem item) {
+    Intent intent = new Intent(this, NewTingActivity.class);
+    startActivity(intent);
+    Logger.log("Starting NewTingActivity");
 
+  }
   
 
 }

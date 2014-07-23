@@ -46,7 +46,12 @@ public class Thing implements Parcelable
 			}
 		});
 
-		thumbnailUrl = (imagefiles.length>0) ? makeThumbnail(imagefiles[0].getAbsolutePath()) : null;
+		thumbnailUrl = path + "/.thumbnail.png";
+		File thumbnailFile = new File(thumbnailUrl);
+		if (!thumbnailFile.exists()) {
+			Logger.log("couldn't find ting thumbnail");
+			thumbnailUrl = (imagefiles != null) ? makeThumbnail(imagefiles[0].getAbsolutePath()) : null;
+		}
 	}
 
 	// constructor for the parcel interface
@@ -63,6 +68,9 @@ public class Thing implements Parcelable
 	}
 	public String getFolderPath() {
 		return this.path;
+	}
+	public File getDir() {
+		return new File(this.path);
 	}
 
 
@@ -108,7 +116,7 @@ public class Thing implements Parcelable
 	}
 
 	// Downsample larger image files to thumbnail bitmap and return URL
-	private String makeThumbnail(String fileName) {
+	public String makeThumbnail(String fileName) {
 
     try  {
       FileInputStream fis = new FileInputStream(fileName);

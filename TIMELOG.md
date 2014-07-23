@@ -49,5 +49,7 @@ n* 2014-04-15 gitlib integration 3 hrs 14 min
 * 2014-06-26 emulator setup and cloning progressbar 2 hrs 30 min
 * 2014-07-20 read in pro Git 2 hrs 0 min
 * 2014-07-21 progressbar and read about mifare classic 3 hrs 20 min
+* 2014-07-22 bug fixes, refactoring and reading about Mifare classic integration' 7 hrs 4 min
+* 2014-07-23 new thing initialization 7 hrs 6 min
 
-### Total time spent: 206 hours and 53 minutes 
+### Total time spent: 221 hours and 3 minutes 
