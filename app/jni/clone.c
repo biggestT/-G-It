@@ -132,7 +132,7 @@ JNIEXPORT jint JNICALL Java_com_thingsbook_it_NativeGit_doClone
 	int error;
 
 	LOGD("cloning repository ...");
-	progress_callback("getting product information ...", 0);
+	progress_callback("getting ting information ...", 0);
 
 
 	const char *c_url = (*env)->GetStringUTFChars(env, url, NULL);

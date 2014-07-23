@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.content.Context;
 import android.app.ActionBar;
 import android.content.pm.ApplicationInfo;
-import android.os.Environment;
 import android.widget.ArrayAdapter;
 import android.app.ListActivity;
 import android.view.MenuItem;
@@ -29,6 +28,7 @@ import com.thingsbook.it.ThingsAdapter;
 import com.thingsbook.it.ThingProfileActivity;
 import com.thingsbook.it.CloneRepositoryActivity;
 import com.thingsbook.it.Logger;
+import com.thingsbook.it.TingApp;
 
 public class MainActivity extends Activity
 {
@@ -37,12 +37,11 @@ public class MainActivity extends Activity
   static final String EXTRA_THING = "com.thingsbook.it.EXTRA_THING";
   static final String EXTRA_PATH = "com.thingsbook.it.EXTRA_PATH";
 
-  private String storagePath;
   private GridView thingsGridView;
   private ThingsAdapter thingsAdapter;
   private ArrayList<Thing> things;
   private File storage;
-
+  private TingApp myApp;
   /** Called when the activity is first created. */
   @Override
   public void onCreate(Bundle savedInstanceState)
@@ -51,12 +50,12 @@ public class MainActivity extends Activity
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
+    myApp = ((TingApp)getApplicationContext());
     things = new ArrayList<Thing>();
 
-    if (isExternalStorageWritable()) {
-      storage = getStorageDir();
-      
-      storagePath = storage.getAbsolutePath();
+    if (myApp.checkIfWritable()) {
+
+      storage = myApp.getStorageDir();
 
       thingsGridView = (GridView) findViewById(R.id.thingsgridview);
       thingsAdapter = new ThingsAdapter(this, things);
@@ -109,28 +108,14 @@ public class MainActivity extends Activity
   	
   	// Start a a new activity
   	Intent intent = new Intent(this, CloneRepositoryActivity.class);
-  	intent.putExtra(EXTRA_PATH, storagePath);
   	startActivity(intent);
 
     Logger.log("Starting CloneRepositoryActivity");
   }
 
-  public boolean isExternalStorageWritable() {
-    String state = Environment.getExternalStorageState();
-    if (Environment.MEDIA_MOUNTED.equals(state)) {
-      return true;
-    }
-    return false;
-  }
+  
 
-  public File getStorageDir() {
-    // Get the directory for the user's public pictures directory.
-    File itstorage = new File(Environment.getExternalStorageDirectory(), "it");
-    if (!itstorage.isDirectory()){
-      itstorage.mkdirs();
-    }
-    return itstorage;
-  }
+  
 
 }
 

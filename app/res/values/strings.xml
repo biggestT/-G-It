@@ -4,5 +4,5 @@
     <string name="button_clone">Clone</string>
     <string name="action_new">New</string>
     <string name="title_activity_display_thing">Ting profile</string>
-    <string name="title_activity_clone_repository">Add Tingit profile</string>
+    <string name="title_activity_clone_repository">Clone Ting</string>
 </resources>

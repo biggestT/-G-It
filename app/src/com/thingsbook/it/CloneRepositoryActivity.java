@@ -13,16 +13,23 @@ import android.view.View;
 import android.os.Message;
 import android.graphics.drawable.Drawable;
 
+// NFC stuff
+import android.nfc.NfcAdapter;
+import android.nfc.Tag;
+import android.nfc.tech.MifareClassic;
+
 import com.thingsbook.it.NativeGit;
 import com.thingsbook.it.Logger;
+import com.thingsbook.it.TingApp;
 
 public class CloneRepositoryActivity extends Activity implements Runnable
 {
   public AtomicBoolean isCloning = new AtomicBoolean(false);
 
-  private String basePath;
+  private String tingPath, storagePath;
   private TextView progressText;
   private ProgressBar progressBar;
+  private TingApp myApp;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -30,21 +37,31 @@ public class CloneRepositoryActivity extends Activity implements Runnable
     setContentView(R.layout.clone);
     Logger.log("cloneRepositoryActivity onCreate");
     // Get the message from the intent
-    Intent intent = getIntent();
-    basePath = getIntent().getStringExtra(MainActivity.EXTRA_PATH) + "/OD-11";
-    
     progressText = (TextView) findViewById(R.id.clone_progress_text);
     progressBar = (ProgressBar) findViewById(R.id.clone_progress_bar);
 
     Drawable progressBarStyle = getResources().getDrawable(R.drawable.progressbar);
     progressBar.setProgressDrawable(progressBarStyle);
 
+    myApp = ((TingApp)getApplicationContext());
+    storagePath = myApp.getStoragePath();
 
   }
+
   @Override 
   protected void onStart() {
     super.onStart();
   
+    Intent intent = getIntent();
+    
+    // if started by detection of a tag we need to read its data
+    if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(intent.getAction())) {
+      readDataFromTag(intent);
+      Logger.log("got nfc tag object");
+    }
+
+    tingPath = storagePath + "/OD-11";
+    
     Thread currentThread = new Thread(this);
     isCloning.set(true);
     currentThread.start();
@@ -52,6 +69,11 @@ public class CloneRepositoryActivity extends Activity implements Runnable
     Logger.log("cloneRepositoryActivity onStart");
   }
 
+  @Override 
+  protected void onResume() {
+    super.onResume();
+    Logger.log("cloneRepositoryActivity onResume");
+  }
   @Override
   protected void onStop() {
     super.onStop();
@@ -61,8 +83,8 @@ public class CloneRepositoryActivity extends Activity implements Runnable
 
   @Override
   public void run() {
-    deleteDirectory(new File(basePath));
-    NativeGit.cloneWithProgress("https://github.com/biggestT/example-product.git", basePath, threadHandler);
+    deleteDirectory(new File(tingPath));
+    NativeGit.cloneWithProgress("https://github.com/biggestT/example-product.git", tingPath, threadHandler);
     finish();
   }
 
@@ -86,5 +108,17 @@ public class CloneRepositoryActivity extends Activity implements Runnable
       }
     }
     return( path.delete() );
+  }
+
+  // get remote repository address from detected tag
+  private void readDataFromTag(Intent intent) {
+    Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+    MifareClassic mfc = MifareClassic.get(tag);
+    byte[] data;
+    // try {
+    //   mfc.connect();
+
+    // }
+    
   }
 }
