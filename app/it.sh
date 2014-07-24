@@ -82,7 +82,7 @@ debugApplication()
 	# printMessage "Stopping app if it is running already ..."
 	adb shell pm clear $PACKAGE_NAME
 	# printMessage "Starting application on phone"
-	adb shell am start -e debug true -n $PACKAGE_NAME/$ACTIVITY
+	adb -d shell am start -e debug true -n $PACKAGE_NAME/$ACTIVITY
 	# # sleep 1
 	
 	if [ "$1" == "logcat" ]; then
@@ -94,6 +94,7 @@ debugApplication()
 	adb logcat  | egrep "($PID|$TAG_NAME)"
   elif [ "$1" == "jdwp" ]; then
   #  JDB DEBUGGING
+  echo "starting jdwp session"
   JDWP_ID=$(adb jdwp | tail -1)
 	echo "JDWP_ID: $JDWP_ID"
 	adb forward tcp:7777 jdwp:$JDWP_ID

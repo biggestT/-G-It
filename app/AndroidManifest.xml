@@ -6,8 +6,9 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.INTERNET" /> 
   <uses-permission android:name="android.permission.NFC"/>
+  <uses-permission android:name="android.permission.CAMERA"/>
   <uses-feature android:name="android.hardware.camera"
-                android:required="false" />
+                android:required="true" />
   <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="18" />
 <application 
   android:name=".TingApp"
@@ -30,14 +31,14 @@
       android:name=".CloneRepositoryActivity"
       android:label="@string/title_activity_clone_repository"
       android:parentActivityName=".MainActivity" >
-    <intent-filter>
+      <intent-filter>
         <action android:name="android.nfc.action.TECH_DISCOVERED"/>
-    </intent-filter>
-    <meta-data android:name="android.nfc.action.TECH_DISCOVERED" 
-      android:resource="@xml/filter_nfc"/>
-    <meta-data
-        android:name="android.support.PARENT_ACTIVITY"
-        android:value=".MainActivity" />
+      </intent-filter>
+      <meta-data android:name="android.nfc.action.TECH_DISCOVERED" 
+        android:resource="@xml/filter_nfc"/>
+        <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value=".MainActivity" />
     </activity>
 
     <!-- Show a Ting's profile once its clicked in the grid of all other Tings -->
@@ -45,16 +46,19 @@
       android:name=".ThingProfileActivity"
       android:label="@string/title_activity_display_thing"
       android:parentActivityName=".MainActivity" >
-    <meta-data
+      <meta-data
         android:name="android.support.PARENT_ACTIVITY"
         android:value=".MainActivity" />
     </activity>
 
     <!-- Initiate a new user-created Ting -->
     <activity
-      android:name=".NewTingActivity"
+      android:name=".TakePictureActivity"
       android:label="@string/title_activity_init_ting"
       android:parentActivityName=".MainActivity">
+        <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value=".MainActivity" />
     </activity>
 </application>
 </manifest>

@@ -39,7 +39,7 @@ public class CloneRepositoryActivity extends Activity implements Runnable
     // Get the message from the intent
     progressText = (TextView) findViewById(R.id.clone_progress_text);
     progressBar = (ProgressBar) findViewById(R.id.clone_progress_bar);
-
+    
     Drawable progressBarStyle = getResources().getDrawable(R.drawable.progressbar);
     progressBar.setProgressDrawable(progressBarStyle);
 

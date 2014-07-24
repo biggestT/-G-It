@@ -1,0 +1,126 @@
+package com.thingsbook.it;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.content.Intent;
+import android.net.Uri;
+
+// camera shit
+import android.provider.MediaStore;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import android.hardware.Camera;
+import android.hardware.Camera.PictureCallback;
+
+import android.widget.ImageView;
+import android.widget.FrameLayout;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Button;
+
+import android.view.View;
+import android.view.SurfaceView;
+import android.view.ViewGroup;
+
+import com.thingsbook.it.Logger;
+import com.thingsbook.it.TingApp;
+import com.thingsbook.it.Thing;
+
+public class TakePictureActivity extends Activity {
+
+  static final int REQUEST_IMAGE_CAPTURE = 1;
+
+	private ImageView tingImageView;
+	private EditText tingTagsView;
+	private TingApp myApp;
+	private Intent takePictureIntent;
+	private File imageFile, tempTingDir;
+	private Thing tempTing;
+  private Camera mCamera;
+  private SurfaceView mPreview;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Logger.log("oncreate in TingPictureActivity");
+		setContentView(R.layout.take_picture);
+
+		myApp = (TingApp) getApplicationContext();
+
+		// Create an instance of Camera
+    mCamera = getCameraInstance();
+    mCamera.setDisplayOrientation(90);
+
+    // Create our Preview view and set it as the content of our activity.
+    mPreview = new CameraPreview(this, mCamera);
+    FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+    preview.addView(mPreview);
+
+
+    // Add a listener to the Capture button
+    Button captureButton = (Button) findViewById(R.id.button_capture);
+
+    captureButton.setOnClickListener( new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+          // get an image from the camera
+        mCamera.takePicture(null, null, mPicture);
+      }
+    });
+  }
+
+  @Override
+  protected void onPause() {
+      super.onPause();
+      releaseCamera();              // release the camera immediately on pause event
+  }
+
+  private PictureCallback mPicture = new PictureCallback() {
+
+    @Override
+    public void onPictureTaken(byte[] data, Camera camera) {
+
+     tempTingDir = new File(myApp.getStorageDir(), "temp");
+     tempTingDir.mkdirs();
+     File pictureFile = new File(tempTingDir, "newPicture.jpg");
+
+      if (pictureFile == null){
+        Logger.log("Error creating media file, check storage permissions");
+        return;
+      }
+
+      try {
+        FileOutputStream fos = new FileOutputStream(pictureFile);
+        fos.write(data);
+        fos.close();
+      } catch (FileNotFoundException e) {
+        Logger.log( "File not found: " + e.getMessage());
+      } catch (IOException e) {
+        Logger.log("Error accessing file: " + e.getMessage());
+      }
+    }
+  };
+
+  private void releaseCamera(){
+    if (mCamera != null){
+        mCamera.release();        // release the camera for other applications
+        mCamera = null;
+    }
+  }
+  /** A safe way to get an instance of the Camera object. */
+  public static Camera getCameraInstance(){
+    Camera c = null;
+    try {
+      c = Camera.open(); // attempt to get a Camera instance
+    } catch (Exception e){
+      Logger.log(e);
+    }
+    return c; // returns null if camera is unavailable
+  }
+}

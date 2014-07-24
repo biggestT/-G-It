@@ -28,7 +28,7 @@ import com.thingsbook.it.Thing;
 import com.thingsbook.it.ThingsAdapter;
 import com.thingsbook.it.ThingProfileActivity;
 import com.thingsbook.it.CloneRepositoryActivity;
-import com.thingsbook.it.NewTingActivity;
+import com.thingsbook.it.TakePictureActivity;
 import com.thingsbook.it.Logger;
 import com.thingsbook.it.TingApp;
 
@@ -119,7 +119,7 @@ public class MainActivity extends Activity
   }
 
   public void createNewTing(MenuItem item) {
-    Intent intent = new Intent(this, NewTingActivity.class);
+    Intent intent = new Intent(this, TakePictureActivity.class);
     startActivity(intent);
     Logger.log("Starting NewTingActivity");
 
