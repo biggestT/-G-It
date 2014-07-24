@@ -51,5 +51,6 @@ n* 2014-04-15 gitlib integration 3 hrs 14 min
 * 2014-07-21 progressbar and read about mifare classic 3 hrs 20 min
 * 2014-07-22 bug fixes, refactoring and reading about Mifare classic integration' 7 hrs 4 min
 * 2014-07-23 new thing initialization 7 hrs 6 min
+* 2014-07-24 custom camera capturing, square pictures and tighter imageviews 6 hrs 45 min
 
-### Total time spent: 221 hours and 3 minutes 
+### Total time spent: 227 hours and 48 minutes 

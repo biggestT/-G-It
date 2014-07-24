@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.widget.ImageView;
 import android.widget.BaseAdapter;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.content.Context;
 import android.view.View;
 import android.widget.GridView;
@@ -44,9 +45,8 @@ public class ThingsAdapter extends BaseAdapter {
 		ImageView imageView;
 		if (convertView == null) {  // if it's not recycled, initialize some attributes
 			imageView = new ImageView(mContext);
-			imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
+			imageView.setAdjustViewBounds(true);
 			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-			imageView.setPadding(8, 8, 8, 8);
 		} else {
 			imageView = (ImageView) convertView;
 		}

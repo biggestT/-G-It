@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
@@ -35,6 +36,7 @@ import com.thingsbook.it.Thing;
 public class TakePictureActivity extends Activity {
 
   static final int REQUEST_IMAGE_CAPTURE = 1;
+  static final int THUMBNAIL_SIZE = 612; // Instagram size hehe
 
 	private ImageView tingImageView;
 	private EditText tingTagsView;
@@ -69,7 +71,7 @@ public class TakePictureActivity extends Activity {
     captureButton.setOnClickListener( new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-          // get an image from the camera
+      // get an image from the camera
         mCamera.takePicture(null, null, mPicture);
       }
     });
@@ -86,18 +88,27 @@ public class TakePictureActivity extends Activity {
     @Override
     public void onPictureTaken(byte[] data, Camera camera) {
 
-     tempTingDir = new File(myApp.getStorageDir(), "temp");
+      // Claim storage place for Image
+     tempTingDir = new File(myApp.getStorageDir(), ".temp");
      tempTingDir.mkdirs();
-     File pictureFile = new File(tempTingDir, "newPicture.jpg");
+     File pictureFile = new File(tempTingDir, ".thumbnail.jpg");
 
       if (pictureFile == null){
         Logger.log("Error creating media file, check storage permissions");
         return;
       }
 
+      
+    // Write image data to bitmap and save in storage place
       try {
+        // createa matrix for rotating the bitmap
+        Matrix matrix = new Matrix();
+        matrix.postRotate(90);
+        Bitmap imageBitmap = BitmapFactory.decodeByteArray(data, 0, data.length); // from bytes to bitmap
+        imageBitmap = Bitmap.createBitmap(imageBitmap, 0, 0, imageBitmap.getHeight(), imageBitmap.getHeight(), matrix, true); // crop to a square format
+        imageBitmap = Bitmap.createScaledBitmap(imageBitmap, THUMBNAIL_SIZE, THUMBNAIL_SIZE, false); // make smaller
         FileOutputStream fos = new FileOutputStream(pictureFile);
-        fos.write(data);
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
         fos.close();
       } catch (FileNotFoundException e) {
         Logger.log( "File not found: " + e.getMessage());

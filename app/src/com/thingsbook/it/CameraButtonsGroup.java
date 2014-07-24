@@ -29,7 +29,6 @@ public class CameraButtonsGroup extends RelativeLayout {
 			// only show a square camera preview window to the user
 			ViewGroup.LayoutParams params = getLayoutParams();
 			params.height = h - w; // makes the buttonscontainer hide the rest of the previewview
-			Logger.log("previewWidth:" +  h + " containerHeight " + w);
 			setLayoutParams(params); 
 		}
 	}

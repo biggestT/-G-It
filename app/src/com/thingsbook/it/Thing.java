@@ -21,6 +21,7 @@ public class Thing implements Parcelable
 {
 
 	private static final String TAG = "ItApplication";
+	private static final int THUMBNAIL_SIZE = 612;
 
 	private String path;
 	private String name;
@@ -33,7 +34,7 @@ public class Thing implements Parcelable
 		path = d.getAbsolutePath();
 		name = d.getName();
 
-		// make thumbnail out of the first found image file
+		// For later use: find all images of this Ting
 		File imagefiles[] = d.listFiles(new FileFilter() {
 			private final String[] okFileExtensions =  new String[] {"jpg", "png", "gif","jpeg"};
 			public boolean accept(File file) {
@@ -46,11 +47,25 @@ public class Thing implements Parcelable
 			}
 		});
 
-		thumbnailUrl = path + "/.thumbnail.png";
-		File thumbnailFile = new File(thumbnailUrl);
-		if (!thumbnailFile.exists()) {
+		// Search through existing thumbnail image
+		File thumbnailfiles[] = d.listFiles(new FileFilter() {
+			private final String[] okFileNames =  new String[] {".thumbnail.jpg", ".thumbnail.png"};
+			public boolean accept(File file) {
+				for (String name : okFileNames) {
+					if (file.getName().toLowerCase().equals(name)) {               
+						return true;
+					}
+				}
+				return false;
+			}
+		});
+		// generate thumbnail image if none was found
+		if (thumbnailfiles.length == 0) {
 			Logger.log("couldn't find ting thumbnail");
-			thumbnailUrl = (imagefiles != null) ? makeThumbnail(imagefiles[0].getAbsolutePath()) : null;
+			thumbnailUrl = (imagefiles.length != 0) ? makeThumbnail(imagefiles[0].getAbsolutePath()) : null;
+		} else {
+		thumbnailUrl = thumbnailfiles[0].getAbsolutePath(); // get path of found thumbnail file
+		Logger.log("found thumbnailfile: " + thumbnailUrl);
 		}
 	}
 
@@ -103,16 +118,20 @@ public class Thing implements Parcelable
 		name = in.readString();
 	}
 
-	public void setImageViewImage(final ImageView iv) {
+	public void setImageViewImage(ImageView iv) {
 		if (thumbnailUrl != null) {
 			Bitmap thumbnailBitmap = BitmapFactory.decodeFile(thumbnailUrl);
+			if (iv == null) {
+				Logger.log("iv is null!");
+			}
 			iv.setImageBitmap(thumbnailBitmap);
 		}
 		else {
 			iv.setImageResource(R.drawable.placeholder);
 		}
 		iv.setBackgroundResource(android.R.color.transparent);
-
+		iv.setAdjustViewBounds(true);
+		iv.invalidate();
 	}
 
 	// Downsample larger image files to thumbnail bitmap and return URL
@@ -121,10 +140,15 @@ public class Thing implements Parcelable
     try  {
       FileInputStream fis = new FileInputStream(fileName);
       Bitmap imageBitmap = BitmapFactory.decodeStream(fis);
-      final int THUMBNAIL_HEIGHT = 400;
-      double shrinkFactor = (double) THUMBNAIL_HEIGHT/ imageBitmap.getHeight();
-      final int THUMBNAIL_WIDTH = Math.round((float)shrinkFactor*imageBitmap.getWidth());
-      imageBitmap = Bitmap.createScaledBitmap(imageBitmap, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, false);
+
+      // transform non-square image to fit within a smaller square image
+      final int w = imageBitmap.getWidth();
+      final int h = imageBitmap.getHeight();
+      double shrinkFactor = (w > h) ? (double) THUMBNAIL_SIZE / w : (double) THUMBNAIL_SIZE / h;
+      int newWidth = (w > h) ? THUMBNAIL_SIZE : Math.round((float)shrinkFactor*w);
+      int newHeight = (h > w) ? THUMBNAIL_SIZE : Math.round((float)shrinkFactor*h);
+      imageBitmap = Bitmap.createScaledBitmap(imageBitmap, newWidth, newHeight, false);
+      imageBitmap = Bitmap.createBitmap(imageBitmap, 0, 0, THUMBNAIL_SIZE, THUMBNAIL_SIZE);
 
       String outputPath = path + "/.thumbnail.png";
       File file = new File(outputPath);
@@ -137,6 +161,7 @@ public class Thing implements Parcelable
     	Logger.log(ex);
     	return null;
     }
+
 	}	
 
 

@@ -41,6 +41,9 @@ public class ThingProfileActivity extends Activity {
 		this.setTitle(thing.getName());
 
 		pictureView = (ImageView) findViewById(R.id.thingimage);
+    if (pictureView == null) {
+      Logger.log("pview is null!");
+    }
     thing.setImageViewImage(pictureView);
 
 		File folder = new File(thing.getFolderPath());

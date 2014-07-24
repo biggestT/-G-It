@@ -15,7 +15,10 @@
    id="svg3229"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="New document 9">
+   sodipodi:docname="round_button.svg"
+   inkscape:export-filename="/home/bigt/thesis/app/res/drawable/round_button.png"
+   inkscape:export-xdpi="139.89999"
+   inkscape:export-ydpi="139.89999">
   <defs
      id="defs3231">
     <linearGradient
@@ -86,7 +89,7 @@
        x2="25.300222"
        y1="13.022673"
        x1="-8.3075361"
-       gradientTransform="matrix(0.96008474,0,0,0.96008474,232.22721,464.54592)"
+       gradientTransform="matrix(1.0633536,0,0,1.0633536,231.33031,463.20108)"
        gradientUnits="userSpaceOnUse"
        id="linearGradient3269"
        xlink:href="#linearGradient4056"
@@ -143,11 +146,11 @@
     <rect
        style="fill:url(#linearGradient3269);fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="rect3825-6-4"
-       width="32.628841"
-       height="32.628841"
-       x="224.25127"
-       y="460.73444"
-       rx="16.314421"
-       ry="16.314421" />
+       width="36.138474"
+       height="36.138474"
+       x="222.49646"
+       y="458.97961"
+       rx="18.069237"
+       ry="18.069237" />
   </g>
 </svg>

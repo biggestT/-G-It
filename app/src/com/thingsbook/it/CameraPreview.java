@@ -57,23 +57,13 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 		  // ignore: tried to stop a non-existent preview
 		}
 
-		// set preview size and make any resize, rotate or
-		// reformatting changes here
-		List<Camera.Size> previewSizes;
-		Camera.Parameters mParameters = mCamera.getParameters();
+		// try to set custom parameters
 		try {
-			previewSizes = mParameters.getSupportedPreviewSizes();
-			Iterator it = previewSizes.iterator();
-			do {
-				if(!it.hasNext())
-					break;
-				Camera.Size cur = (Camera.Size) it.next();
-				Logger.log("Found preview size: " + cur.width + "x" + cur.height);
-			} while (true);
-			mParameters.setPreviewSize(previewSizes.get(0).width, previewSizes.get(0).height);
+			Camera.Parameters mParameters = mCamera.getParameters();
+			mParameters.setFocusMode("FOCUS_MODE_AUTO");
 			mCamera.setParameters(mParameters);
-		} catch(Exception e) {
-			Logger.log(e);
+		} catch (Exception ex) {
+			Logger.log(ex);
 		}
 		// start preview with new settings
 		try {
